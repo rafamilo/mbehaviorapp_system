@@ -52,29 +52,25 @@ class UsersFixture extends TestFixture
     // @codingStandardsIgnoreEnd
 
     /**
-     * Init method
+     * Records
      *
-     * @return void
+     * @var array
      */
-    public function init()
-    {
-        $this->records = [
+    public $records = [
             [
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
                 'user_type_id' => 1,
-                'birthdate' => '2018-09-03 17:00:10',
+                'birthdate' => '2018-09-03 17:32:01',
                 'cpf' => 1,
                 'rg' => 1,
                 'email' => 'Lorem ipsum dolor sit amet',
                 'answerable' => 1,
-                'created' => '2018-09-03 17:00:10',
-                'updated' => '2018-09-03 17:00:10',
+                'created' => '2018-09-03 17:32:01',
+                'updated' => '2018-09-03 17:32:01',
                 'created_by' => 1,
                 'updated_by' => 1,
                 'status' => 1
             ],
         ];
-        parent::init();
-    }
 }

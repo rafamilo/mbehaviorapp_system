@@ -4,7 +4,7 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * User Entity
+ * User Entity.
  *
  * @property int $id
  * @property string $name
@@ -19,12 +19,6 @@ use Cake\ORM\Entity;
  * @property int $created_by
  * @property int $updated_by
  * @property int $status
- *
- * @property \App\Model\Entity\UserType $user_type
- * @property \App\Model\Entity\Announcement[] $announcements
- * @property \App\Model\Entity\PartyHallSchedule[] $party_hall_schedules
- * @property \App\Model\Entity\UserInvoice[] $user_invoices
- * @property \App\Model\Entity\UserPhone[] $user_phones
  */
 class User extends Entity
 {
@@ -55,6 +49,6 @@ class User extends Entity
         'announcements' => true,
         'party_hall_schedules' => true,
         'user_invoices' => true,
-        'user_phones' => true
+        'user_phones' => true,
     ];
 }

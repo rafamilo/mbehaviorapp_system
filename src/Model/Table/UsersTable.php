@@ -1,35 +1,30 @@
 <?php
 namespace App\Model\Table;
 
+use App\Model\Entity\User;
+use Cake\Event\Event;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\Routing\Router;
 use Cake\Validation\Validator;
+use DateTime;
 
 /**
  * Users Model
  *
- * @property \App\Model\Table\UserTypesTable|\Cake\ORM\Association\BelongsTo $UserTypes
- * @property \App\Model\Table\AnnouncementsTable|\Cake\ORM\Association\HasMany $Announcements
- * @property \App\Model\Table\PartyHallSchedulesTable|\Cake\ORM\Association\HasMany $PartyHallSchedules
- * @property \App\Model\Table\UserInvoicesTable|\Cake\ORM\Association\HasMany $UserInvoices
- * @property \App\Model\Table\UserPhonesTable|\Cake\ORM\Association\HasMany $UserPhones
- *
- * @method \App\Model\Entity\User get($primaryKey, $options = [])
- * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\User[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\User|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\User|bool saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\User patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\User[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\User findOrCreate($search, callable $callback = null, $options = [])
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
+ * @property \Cake\ORM\Association\BelongsTo $UserTypes
+ * @property \Cake\ORM\Association\HasMany $Announcements
+ * @property \Cake\ORM\Association\HasMany $PartyHallSchedules
+ * @property \Cake\ORM\Association\HasMany $UserInvoices
+ * @property \Cake\ORM\Association\HasMany $UserPhones
+
  */
 class UsersTable extends Table
 {
 
     /**
+     * testando geracao de codigos
      * Initialize method
      *
      * @param array $config The configuration for the Table.
@@ -39,9 +34,9 @@ class UsersTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('users');
-        $this->setDisplayField('name');
-        $this->setPrimaryKey('id');
+        $this->table('users');
+        $this->displayField('name');
+        $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
 
@@ -73,32 +68,31 @@ class UsersTable extends Table
     {
         $validator
             ->integer('id')
-            ->allowEmpty('id', 'create');
+            ->allowEmpty('id');
 
         $validator
             ->scalar('name')
-            ->maxLength('name', 50)
-            ->requirePresence('name', 'create')
+            ->maxLength('name')
+            ->requirePresence('name')
             ->notEmpty('name');
 
         $validator
-            ->dateTime('birthdate')
-            ->requirePresence('birthdate', 'create')
+            ->requirePresence('birthdate')
             ->notEmpty('birthdate');
 
         $validator
             ->integer('cpf')
-            ->requirePresence('cpf', 'create')
+            ->requirePresence('cpf')
             ->notEmpty('cpf');
 
         $validator
             ->integer('rg')
-            ->requirePresence('rg', 'create')
+            ->requirePresence('rg')
             ->notEmpty('rg');
 
         $validator
             ->email('email')
-            ->requirePresence('email', 'create')
+            ->requirePresence('email')
             ->notEmpty('email')
             ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
@@ -108,16 +102,16 @@ class UsersTable extends Table
 
         $validator
             ->integer('created_by')
-            ->requirePresence('created_by', 'create')
+            ->requirePresence('created_by')
             ->notEmpty('created_by');
 
         $validator
             ->integer('updated_by')
-            ->requirePresence('updated_by', 'create')
+            ->requirePresence('updated_by')
             ->notEmpty('updated_by');
 
         $validator
-            ->requirePresence('status', 'create')
+            ->requirePresence('status')
             ->notEmpty('status');
 
         return $validator;
@@ -134,7 +128,47 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->existsIn(['user_type_id'], 'UserTypes'));
-
         return $rules;
+    }
+
+    public function beforeFind(Event $event,Query $queryData)
+    {
+      $outer = Router::getRequest();
+     if($outer->controller=='Users') {
+    if (!empty($outer->query)) {
+           foreach ($outer->query as $key => $value) {
+                if (!empty($value) && substr_count($key, '__') == 1) {
+                    if(substr_count($value, '/')){
+                          if(substr_count($value, ':')){
+                                $data = new DateTime();
+                                $value = $data->createFromFormat('d/m/Y H:i',$value);
+                                $queryData->andWhere([str_replace('__', '.', $key) => $value]);
+                          }else{
+                                $value = implode('-', array_reverse(explode('/', $value)));
+                                $queryData->andWhere([str_replace('__', '.', $key) => $value]);
+                          }
+                    }else{
+                                $queryData->andWhere(['UPPER('.str_replace('__', '.', $key).') like' => '%'.strtoupper($value).'%']);
+                    }
+                }
+           }
+        }
+     }
+       return $queryData;
+    }
+
+
+    public function beforeSave(Event $event)
+    {
+        $entity = $event->data['entity'];
+        if($entity->isNew()) {
+         }
+        
+        if(!is_object($entity->birthdate)){
+           $inicio = new DateTime();
+           $now = $inicio->createFromFormat('d/m/Y H:i',$entity->birthdate);
+           $entity->birthdate = $now;
+        }
+         return true;
     }
 }
