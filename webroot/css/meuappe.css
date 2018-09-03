@@ -4,8 +4,9 @@
     border-color: #c7d2db !important;
 }
 
-i {
+button > i {
     color: #308ee0 !important;
+    margin: 0 !important;
 }
 
 .no-margin {
@@ -14,4 +15,21 @@ i {
 
 .no-padding {
     padding: 0 !important;
+}
+
+.btn.btn-icons {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.mt-20 {
+    margin-top: 20px !important;
+}
+
+.text-right-top{
+    vertical-align: top;
+    text-align: right;
 }

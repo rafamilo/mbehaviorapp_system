@@ -13,31 +13,8 @@ return $field === 'lft' || $field === 'rght';
 });
 }
 %>
-<div class="content-wrapper">
-    <div class="row">
-        <div class="col-12 grid-margin">
-            <div class="card">
-                <div class="card-body">
-                    <h2>
-                        <%= $pluralHumanName %>
-                    </h2>
-                    <strong>
-                        <% if (strpos($action, 'add') === false): %>
-                        <?= __('Editar <%= $singularHumanName %>') ?>
-                        <% else: %>
-                        <?= __('Cadastrar <%= $singularHumanName %>') ?>
-                        <% endif; %>
-                    </strong>
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-    <div class="row">
-        <div class="col-12 grid-margin">
-            <div class="card">
-                <div id="<%= $pluralVar %>" class="form card-body">
-                    <?= $this->Form->create($<%= $singularVar %>) ?>
+<div id="<%= $pluralVar %>" class="form card-body">
+                    <?= $this->Form->create($<%= $pluralVar %>) ?>
                     <div class="col-12 no-padding row">
                             <%
                             foreach ($fields as $field) {
@@ -50,7 +27,7 @@ return $field === 'lft' || $field === 'rght';
                                     if (!empty($fieldData['null'])) { %>
                         <div class='col-6'>
                             <% if (strpos($action, 'add') === false): %>
-                            <?=$this->Form->input('<%= $field %>', ['data'=>'select','controller'=>'<%= $keyFields[$field] %>','action'=>'fill','data-value'=>$<%= $singularVar %>-><%= $field %>, 'empty' => 'selecione', 'class'=>'form-control']); ?>
+                            <?=$this->Form->input('<%= $field %>', ['data'=>'select','controller'=>'<%= $keyFields[$field] %>','action'=>'fill','data-value'=>$<%= $pluralVar %>-><%= $field %>, 'empty' => 'selecione', 'class'=>'form-control']); ?>
                             <% else: %>
                             <?=$this->Form->input('<%= $field %>', ['data'=>'select','controller'=>'<%= $keyFields[$field] %>','action'=>'fill',  'empty' => 'selecione', 'class'=>'form-control']); ?>
                             <% endif; %>
@@ -58,7 +35,7 @@ return $field === 'lft' || $field === 'rght';
                         <% } else { %>
                         <div class='col-6'>
                             <% if (strpos($action, 'add') === false): %>
-                            <?=$this->Form->input('<%= $field %>', ['data'=>'select','controller'=>'<%= $keyFields[$field] %>','action'=>'fill','data-value'=>$<%= $singularVar %>-><%= $field %>, 'class'=>'form-control']); ?>
+                            <?=$this->Form->input('<%= $field %>', ['data'=>'select','controller'=>'<%= $keyFields[$field] %>','action'=>'fill','data-value'=>$<%= $pluralVar %>-><%= $field %>, 'class'=>'form-control']); ?>
                             <% else: %>
                             <?=$this->Form->input('<%= $field %>', ['data'=>'select','controller'=>'<%= $keyFields[$field] %>','action'=>'fill', 'class'=>'form-control']); ?>
                             <% endif; %>
@@ -74,7 +51,7 @@ return $field === 'lft' || $field === 'rght';
                                 if($fieldData['type'] === 'date'){ %>
                         <div class='col-6'>
                             <% if (strpos($action, 'add') === false): %>
-                            <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datepicker form-control','value'=>$this->Time->format($<%= $singularVar %>-><%= $field %>,'dd/MM/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                            <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datepicker form-control','value'=>$this->Time->format($<%= $pluralVar %>-><%= $field %>,'dd/MM/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% else: %>
                             <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% endif; %>
@@ -84,7 +61,7 @@ return $field === 'lft' || $field === 'rght';
                             <% if (strpos($action, 'add') === true): %>
                             <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datetimepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% else: %>
-                            <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datetimepicker form-control','value'=>$this->Time->format($<%= $singularVar %>-><%= $field %>,'dd/MM/Y HH:mm'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                            <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datetimepicker form-control','value'=>$this->Time->format($<%= $pluralVar %>-><%= $field %>,'dd/MM/Y HH:mm'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% endif; %>
                         </div>
                         <% }else{ %>
@@ -96,7 +73,7 @@ return $field === 'lft' || $field === 'rght';
                             if($fieldData['type'] === 'date') { %>
                         <div class='col-6'>
                             <% if (strpos($action, 'add') === false): %>
-                            <?=$this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($<%= $singularVar %>-><%= $field %>,'dd/MM/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                            <?=$this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($<%= $pluralVar %>-><%= $field %>,'dd/MM/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% else: %>
                             <?=$this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% endif; %>
@@ -104,7 +81,7 @@ return $field === 'lft' || $field === 'rght';
                         <% }elseif($fieldData['type'] === 'datetime'){ %>
                         <div class='col-6'>
                             <?php <% if (strpos($action, 'add') === false): %>
-                                        echo $this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datetimepicker form-control','value'=>$this->Time->format($<%= $singularVar %>-><%= $field %>,'dd/MM/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
+                                        echo $this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datetimepicker form-control','value'=>$this->Time->format($<%= $pluralVar %>-><%= $field %>,'dd/MM/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                                 <% else: %>
                                         echo $this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datetimepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                         <% endif; %> ?>
@@ -140,7 +117,3 @@ return $field === 'lft' || $field === 'rght';
                     </div>
                     <?= $this->Form->end() ?>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
