@@ -20,35 +20,35 @@
                 <div id="users" class="form card-body">
                     <?= $this->Form->create($user) ?>
                     <div class="col-12 no-padding row">
-                                                    <div class='col-6 no-padding'>
+                                                    <div class='col-6'>
                                                         <?=$this->Form->input('name', ['class'=>'form-control']); ?>
                                                     </div>
-                                                <div class='col-6 no-padding'>
+                                                <div class='col-6'>
                                                         <?=$this->Form->input('user_type_id', ['data'=>'select','controller'=>'userTypes','action'=>'fill','data-value'=>$user->user_type_id, 'class'=>'form-control']); ?>
                                                     </div>
-                                                <div class='col-6 no-padding'>
-                            <?php                                         echo $this->Form->input('birthdate', ['type' => 'text', 'class' => 'datetimepicker form-control','value'=>$this->Time->format($user->birthdate,'dd/MM/Y H:m'), 'append' => [$this->Form->button($this->Html->icon("calendar"), ['type'=>'button'])]]]);
+                                                <div class='col-6'>
+                            <?php                                         echo $this->Form->input('birthdate', ['type' => 'text', 'class' => 'datetimepicker form-control','value'=>$this->Time->format($user->birthdate,'dd/MM/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]]);
                                                  ?>
                         </div>
-                                                <div class='col-6 no-padding'>
+                                                <div class='col-6'>
                                                         <?=$this->Form->input('cpf', ['class'=>'form-control']); ?>
                                                     </div>
-                                                <div class='col-6 no-padding'>
+                                                <div class='col-6'>
                                                         <?=$this->Form->input('rg', ['class'=>'form-control']); ?>
                                                     </div>
-                                                <div class='col-6 no-padding'>
+                                                <div class='col-6'>
                                                         <?=$this->Form->input('email', ['class'=>'form-control']); ?>
                                                     </div>
-                                                <div class='col-6 no-padding'>
+                                                <div class='col-6'>
                                                         <?=$this->Form->input('answerable', ['class'=>'form-control']); ?>
                                                     </div>
-                                                <div class='col-6 no-padding'>
+                                                <div class='col-6'>
                                                         <?=$this->Form->input('created_by', ['class'=>'form-control']); ?>
                                                     </div>
-                                                <div class='col-6 no-padding'>
+                                                <div class='col-6'>
                                                         <?=$this->Form->input('updated_by', ['class'=>'form-control']); ?>
                                                     </div>
-                                                <div class='col-6 no-padding'>
+                                                <div class='col-6'>
                                                         <?=$this->Form->input('status', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class="col-12 no-padding text-right mt-20">

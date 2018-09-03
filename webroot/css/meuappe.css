@@ -1,0 +1,17 @@
+.background-append {
+    background-color: whitesmoke !important;
+    border-radius: 0 !important;
+    border-color: #c7d2db !important;
+}
+
+i {
+    color: #308ee0 !important;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}

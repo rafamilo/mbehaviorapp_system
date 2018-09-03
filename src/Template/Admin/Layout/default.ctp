@@ -13,8 +13,12 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="/admin/css/style.css">
   <link rel="stylesheet" href="/admin/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/admin/vendors/iconfonts/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/admin/vendors/iconfonts/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="/admin/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="/admin/vendors/css/vendor.bundle.addons.css">
+  <link rel="stylesheet" href="/css/meuappe.css">
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> -->
   <!-- endinject -->
   <link rel="shortcut icon" href="/img/favicon.png" />
 </head>
