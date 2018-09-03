@@ -75,5 +75,10 @@ Router::scope('/', function (RouteBuilder $routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
+
+    Router::prefix('admin', function ($routes) {
+        $routes->fallbacks(DashedRoute::class);
+    });
+    
     $routes->fallbacks(DashedRoute::class);
 });
