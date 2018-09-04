@@ -12,16 +12,12 @@
  * @since         0.1.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+$compact = ["'" . $singularName . "'"];
 %>
 
-    public function login()
+    public function initialize()
     {
-        if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
-            }
-            $this->Flash->error(__('Invalid credentials, try again'));
-        }
+        parent::initialize();
+        $this->loadComponent('Error');
+        $this->loadComponent('PatchTimeStamp');
     }

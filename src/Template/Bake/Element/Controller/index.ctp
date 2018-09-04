@@ -14,11 +14,13 @@
  */
 %>
 
-    /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Error');
+        $this->loadComponent('PatchTimeStamp');
+    }
+
     public function index()
     {
 <% $belongsTo = $this->Bake->aliasExtractor($modelObj, 'BelongsTo'); %>
@@ -29,8 +31,6 @@
 <% endif; %>
         $<%= $pluralName %> = $this->paginate($this-><%= $currentModelName %>);
 
-
         $this->set(compact('<%= $pluralName %>'));
         $this->set('_serialize', ['<%= $pluralName %>']);
-
     }

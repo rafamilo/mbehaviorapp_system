@@ -25,6 +25,16 @@ class UsersControllerTest extends IntegrationTestCase
     ];
 
     /**
+     * Test initialize method
+     *
+     * @return void
+     */
+    public function testInitialize()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
      * Test index method
      *
      * @return void
@@ -70,26 +80,6 @@ class UsersControllerTest extends IntegrationTestCase
      * @return void
      */
     public function testDelete()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test fill method
-     *
-     * @return void
-     */
-    public function testFill()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test getedit method
-     *
-     * @return void
-     */
-    public function testGetedit()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

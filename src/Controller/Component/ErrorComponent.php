@@ -16,7 +16,7 @@ use Cake\Http\Exception\ServiceUnavailableException; //503
 
 class ErrorComponent extends Component
 {
-    public function emitError($code, $message)
+    public function emitError($code, $message = null)
     {
         switch ($code) {
             case 404:                
