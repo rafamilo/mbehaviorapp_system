@@ -117,58 +117,9 @@ class UsersTable extends Table
         return $validator;
     }
 
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules)
+    public function beforeFind(Event $event, Query $queryData)
     {
-        $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->existsIn(['user_type_id'], 'UserTypes'));
-        return $rules;
-    }
-
-    public function beforeFind(Event $event,Query $queryData)
-    {
-      $outer = Router::getRequest();
-     if($outer->controller=='Users') {
-    if (!empty($outer->query)) {
-           foreach ($outer->query as $key => $value) {
-                if (!empty($value) && substr_count($key, '__') == 1) {
-                    if(substr_count($value, '/')){
-                          if(substr_count($value, ':')){
-                                $data = new DateTime();
-                                $value = $data->createFromFormat('d/m/Y H:i',$value);
-                                $queryData->andWhere([str_replace('__', '.', $key) => $value]);
-                          }else{
-                                $value = implode('-', array_reverse(explode('/', $value)));
-                                $queryData->andWhere([str_replace('__', '.', $key) => $value]);
-                          }
-                    }else{
-                                $queryData->andWhere(['UPPER('.str_replace('__', '.', $key).') like' => '%'.strtoupper($value).'%']);
-                    }
-                }
-           }
-        }
-     }
-       return $queryData;
-    }
-
-
-    public function beforeSave(Event $event)
-    {
-        $entity = $event->data['entity'];
-        if($entity->isNew()) {
-         }
-        
-        if(!is_object($entity->birthdate)){
-           $inicio = new DateTime();
-           $now = $inicio->createFromFormat('d/m/Y H:i',$entity->birthdate);
-           $entity->birthdate = $now;
-        }
-         return true;
+        $queryData->where(['Users.status !=' => 0]);
+        return $queryData;
     }
 }

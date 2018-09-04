@@ -23,6 +23,7 @@ class UsersController extends AppController
         $this->paginate = [
             'contain' => ['UserTypes']
         ];
+        $this->Flash->success(__('O user foi deletado com sucesso.'));
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
@@ -96,5 +97,4 @@ class UsersController extends AppController
         }
                 
         return $this->redirect(['action' => 'index']);
-    }
-}
+    }}
