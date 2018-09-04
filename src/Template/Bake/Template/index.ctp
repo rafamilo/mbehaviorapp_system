@@ -151,7 +151,7 @@ return $field === 'lft' || $field === 'rght';
                                 </div>
                                 <div class="col-6 no-padding text-right">
                                     <p class="no-margin">
-                                        <?= $this->Html->link($this->Html->icon('plus').' Cadastrar <%= $singularHumanName %>', ['action' => 'add'],['title'=>'Cadastrar <%= $singularHumanName %>','class'=>'btn btn-primary','escape' => false]) ?>
+                                        <?= $this->Html->link("<i class='fa fa-plus'></i>".' Cadastrar <%= $singularHumanName %>', ['action' => 'add'],['title'=>'Cadastrar <%= $singularHumanName %>','class'=>'btn btn-primary','escape' => false]) ?>
                                     </p>
                                 </div>
                     </div>
@@ -224,9 +224,9 @@ return $field === 'lft' || $field === 'rght';
                                         $pk = '$' . $singularVar . '->' . $primaryKey[0];
                                         %>
                                     <td class="actions">
-                                        <?= $this->Html->link($this->Html->icon('list-alt'), ['controller'=>'<%=$pluralVar%>','action' => 'view', <%= $pk %>],['toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Detalhes','escape' => false,'class'=>'btn btn-xs btn-info']) ?>
-                                        <?= $this->Html->link($this->Html->icon('pencil'), ['controller'=>'<%=$pluralVar%>','action' => 'edit', <%= $pk %>],['toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Editar','escape' => false,'class'=>'btn btn-xs btn-primary']) ?>
-                                        <?= $this->Html->link($this->Html->icon('remove'),  ['controller'=>'<%=$pluralVar%>','action'=>'delete', <%= $pk %>],['onclick'=>'excluir(event, this)','toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Deletar','escape' => false,'class'=>'btn btn-xs btn-danger','listen' => 'f']) ?>
+                                        <?= $this->Html->link("<i class='fa fa-list-alt'></i>", ['controller'=>'<%=$pluralVar%>','action' => 'view', <%= $pk %>],['toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Detalhes','escape' => false,'class'=>'btn btn-icons btn-info']) ?>
+                                        <?= $this->Html->link("<i class='fa fa-pencil'></i>", ['controller'=>'<%=$pluralVar%>','action' => 'edit', <%= $pk %>],['toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Editar','escape' => false,'class'=>'btn btn-icons btn-primary']) ?>
+                                        <?= $this->Html->link("<i class='fa fa-remove'></i>",  ['controller'=>'<%=$pluralVar%>','action'=>'delete', <%= $pk %>],['onclick'=>'excluir(event, this)','toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Deletar','escape' => false,'class'=>'btn btn-icons btn-danger','listen' => 'f']) ?>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -235,9 +235,9 @@ return $field === 'lft' || $field === 'rght';
                         <div class="text-center">
                             <div class="paginator">
                                 <ul class="pagination">
-                                    <?= $this->Paginator->prev($this->Html->icon('chevron-left'),['escape' => false]) ?>
+                                    <?= $this->Paginator->prev("<i class='fa fa-chevron-left'></i>",['escape' => false]) ?>
                                     <?= $this->Paginator->numbers() ?>
-                                    <?= $this->Paginator->next($this->Html->icon('chevron-right'),['escape' => false]) ?>
+                                    <?= $this->Paginator->next("<i class='fa fa-chevron-right'></i>",['escape' => false]) ?>
                                 </ul>
                                 <p>
                                     <?= $this->Paginator->counter('Página {{page}} de {{pages}}') ?>

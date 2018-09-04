@@ -134,7 +134,7 @@ return $field === 'lft' || $field === 'rght';
                             %>
                         <div class="col-12 no-padding text-right mt-20">
                             <?= $this->Form->button(__('Salvar'),['type'=>'submit', 'class'=>'btn btn-primary mr-2']) ?>
-                            <?= $this->Form->button(__('Cancelar'), ['class'=>'btn btn-light', 'onclick'=>'verifyCancel(event)'])?>
+                            <?= $this->Form->button(__('Cancelar'), ['class'=>'btn btn-light', 'onclick'=>'verifyCancel(event)', 'type' => 'button'])?>
                         </div>
                         <div class="clearfix"></div>
                     </div>
