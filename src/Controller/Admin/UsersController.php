@@ -10,7 +10,7 @@ use App\Controller\AppController;
  */
 class UsersController extends AppController
 {
-
+    
     public function initialize()
     {
         parent::initialize();
@@ -24,7 +24,7 @@ class UsersController extends AppController
             'contain' => ['UserTypes']
         ];
         $users = $this->paginate($this->Users);
-        $this->Flash->success(__('O user foi salvo com sucesso!'));
+
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
     }
@@ -43,7 +43,10 @@ class UsersController extends AppController
     {
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
+
+            $this->request->data = $this->PatchTimeEntity($this->Users, $this->request->data, $user);
             $user = $this->Users->patchEntity($user, $this->request->data);
+            
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('O user foi salvo com sucesso!'));
                 return $this->redirect(['action' => 'index']);
@@ -62,7 +65,10 @@ class UsersController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+
+            $this->request->data = $this->PatchTimeEntity($this->Users, $this->request->data, $user);
             $user = $this->Users->patchEntity($user, $this->request->data);
+            
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('O user foi salvo com sucesso.'));
                 return $this->redirect(['action' => 'index']);
@@ -78,11 +84,17 @@ class UsersController extends AppController
     public function delete($id = null)
     {
         $user = $this->Users->get($id);
-                $user->status = 0;
+                
+        $this->request->data['status'] = 0;
+        $this->request->data = $this->PatchTimeEntity($this->Users, $this->request->data, $user);
+        $user = $this->Users->patchEntity($user, $this->request->data);
+
         if ($this->Users->save($user)) {
             $this->Flash->success(__('O user foi deletado com sucesso.'));
         } else {
             $this->Flash->error(__('Desculpe! O user não foi deletado! Tente novamente mais tarde.'));
         }
-                return $this->redirect(['action' => 'index']);
-    }}
+                
+        return $this->redirect(['action' => 'index']);
+    }
+}

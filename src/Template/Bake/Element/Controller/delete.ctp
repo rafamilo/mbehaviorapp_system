@@ -18,7 +18,11 @@
     {
         $<%= $singularName %> = $this-><%= $currentModelName %>->get($id);
         <% if($currentModelName!= 'SituacaoCadastros'): %>
-        $<%= $singularName %>->status = 0;
+        
+        $this->request->data['status'] = 0;
+        $this->request->data = $this->PatchTimeEntity($this-><%= $currentModelName %>, $this->request->data, $<%= $singularName %>);
+        $<%= $singularName %> = $this-><%= $currentModelName %>->patchEntity($<%= $singularName %>, $this->request->data);
+
         if ($this-><%= $currentModelName; %>->save($<%= $singularName %>)) {
             $this->Flash->success(__('O <%= strtolower($singularHumanName) %> foi deletado com sucesso.'));
         } else {
@@ -31,5 +35,6 @@
         $this->Flash->error(__('Desculpe! O <%= strtolower($singularHumanName) %> não foi deletado! Tente novamente mais tarde.'));
         }
         <% endif; %>
+        
         return $this->redirect(['action' => 'index']);
     }

@@ -38,11 +38,12 @@ foreach ($components as $component):
  */
 class <%= $name %>Controller extends AppController
 {
-<%
-echo $this->Bake->arrayProperty('helpers', $helpers, ['indent' => false]);
-echo $this->Bake->arrayProperty('components', $components, ['indent' => false]);
-foreach($actions as $action) {
-    echo $this->element('Controller/' . $action);
-}
-%>
+    <%
+    echo $this->Bake->arrayProperty('helpers', $helpers, ['indent' => false]);
+    echo $this->Bake->arrayProperty('components', $components, ['indent' => false]);
+    foreach($actions as $action) {
+        echo $this->element('Controller/' . $action);
+    }
+    
+    %>
 }

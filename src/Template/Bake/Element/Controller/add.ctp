@@ -19,7 +19,10 @@ $compact = ["'" . $singularName . "'"];
     {
         $<%= $singularName %> = $this-><%= $currentModelName %>->newEntity();
         if ($this->request->is('post')) {
+
+            $this->request->data = $this->PatchTimeEntity($this-><%= $currentModelName %>, $this->request->data, $<%= $singularName %>);
             $<%= $singularName %> = $this-><%= $currentModelName %>->patchEntity($<%= $singularName %>, $this->request->data);
+            
             if ($this-><%= $currentModelName; %>->save($<%= $singularName %>)) {
                 $this->Flash->success(__('O <%= strtolower($singularHumanName) %> foi salvo com sucesso!'));
                 return $this->redirect(['action' => 'index']);
