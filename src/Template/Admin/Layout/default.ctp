@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="/admin/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="/admin/vendors/css/vendor.bundle.addons.css">
   <link rel="stylesheet" href="/css/meuappe.css">
+  <script src="/js/sweetalert.min.js"></script>
+  <script src="/js/sweetAlertFunctions.js"></script>
   <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> -->
   <!-- endinject -->
   <link rel="shortcut icon" href="/img/favicon.png" />
@@ -34,6 +36,7 @@
       <!-- partial -->
       <div class="main-panel">
         <!-- / .main-navbar -->
+        <?= $this->Flash->render() ?>
         <?= $this->fetch('content'); ?>
         <?= $this->element('footer'); ?>
         <!-- partial -->
