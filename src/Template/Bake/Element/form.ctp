@@ -82,14 +82,14 @@ return $field === 'lft' || $field === 'rght';
                         <% }elseif($fieldData['type'] === 'datetime'){ %>
                         <div class='col-6'>
                             <% if (strpos($action, 'add') === true): %>
-                            <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datetimepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                            <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% else: %>
-                            <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datetimepicker form-control','value'=>$this->Time->format($<%= $singularVar %>-><%= $field %>,'dd/MM/Y HH:mm'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                            <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datepicker form-control','value'=>$this->Time->format($<%= $singularVar %>-><%= $field %>,'dd/MM/Y HH:mm'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% endif; %>
                         </div>
                         <% }else{ %>
                         <div class='col-6'>
-                            <?php echo $this->Form->input('<%= $field %>', ['empty' => true, 'class'=>'form-control']); ?>
+                            <?= $this->Form->input('<%= $field %>', ['empty' => true, 'class'=>'form-control']); ?>
                         </div>
                         <%        }
                             } else {
@@ -104,9 +104,9 @@ return $field === 'lft' || $field === 'rght';
                         <% }elseif($fieldData['type'] === 'datetime'){ %>
                         <div class='col-6'>
                             <?php <% if (strpos($action, 'add') === false): %>
-                                        echo $this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datetimepicker form-control','value'=>$this->Time->format($<%= $singularVar %>-><%= $field %>,'dd/MM/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
+                                        echo $this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($<%= $singularVar %>-><%= $field %>,'dd/MM/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                                 <% else: %>
-                                        echo $this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datetimepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
+                                        echo $this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                         <% endif; %> ?>
                         </div>
                         <% }else{ %>
@@ -126,7 +126,7 @@ return $field === 'lft' || $field === 'rght';
                             foreach ($associations['BelongsToMany'] as $assocName => $assocData) {
                             %>
                         <div class='col-6'>
-                            <?php echo $this->Form->input('<%= $assocData['property'] %>._ids', ['options' => $<%= $assocData['variable'] %>, 'class'=>'form-control']); ?>
+                            <?= $this->Form->input('<%= $assocData['property'] %>._ids', ['options' => $<%= $assocData['variable'] %>, 'class'=>'form-control']); ?>
                         </div>
                         <%
                             }

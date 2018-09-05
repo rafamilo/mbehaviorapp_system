@@ -27,7 +27,7 @@
                                                         <?=$this->Form->input('user_type_id', ['data'=>'select','controller'=>'userTypes','action'=>'fill', 'class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
-                            <?php                                         echo $this->Form->input('birthdate', ['type' => 'text', 'class' => 'datetimepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
+                            <?php                                         echo $this->Form->input('birthdate', ['type' => 'text', 'class' => 'datepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                          ?>
                         </div>
                                                 <div class='col-6'>

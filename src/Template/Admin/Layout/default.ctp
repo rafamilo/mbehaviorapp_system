@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/admin/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="/admin/vendors/css/vendor.bundle.addons.css">
   <link rel="stylesheet" href="/css/meuappe.css">
+  <link rel="stylesheet" href="/css/jquery-ui.min.css">
   <script src="/js/sweetalert.min.js"></script>
   <script src="/js/sweetAlertFunctions.js"></script>
   <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> -->
@@ -54,6 +55,7 @@
   <script src="/admin/vendors/js/vendor.bundle.addons.js"></script>
   <script src="/admin/js/off-canvas.js"></script>
   <script src="/admin/js/misc.js"></script>
+  <script src="/js/jquery-ui.min.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="/admin/js/dashboard.js"></script>
@@ -61,5 +63,9 @@
   <script src="/admin/js/maps.js"></script>
   <!-- End custom js for this page-->
 </body>
-
+<script>
+  $( function() {
+    $( ".datepicker" ).datepicker();
+  } );
+  </script>
 </html>
