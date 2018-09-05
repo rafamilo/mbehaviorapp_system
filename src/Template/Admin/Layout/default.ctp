@@ -61,11 +61,45 @@
   <script src="/admin/js/dashboard.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5NXz9eVnyJOA81wimI8WYE08kW_JMe8g&callback=initMap" async defer></script>
   <script src="/admin/js/maps.js"></script>
+  <script src="/js/jquery.mask.min.js"></script>
   <!-- End custom js for this page-->
 </body>
 <script>
-  $( function() {
+  $(document).ready(function(){
     $( ".datepicker" ).datepicker();
-  } );
+  $('[mask="date"]').mask('00/00/0000');
+  $('[mask="time"]').mask('00:00:00');
+  $('[mask="date_time"]').mask('00/00/0000 00:00:00');
+  $('[mask="cep"]').mask('00000-000');
+  $('[mask="phone"]').mask('0000-0000');
+  $('[mask="phone_with_ddd"]').mask('(00) 0000-0000');
+  $('[mask="phone_us"]').mask('(000) 000-0000');
+  $('[mask="mixed"]').mask('AAA 000-S0S');
+  $('[mask="cpf"]').mask('000.000.000-00', {reverse: true});
+  $('[mask="cnpj"]').mask('00.000.000/0000-00', {reverse: true});
+  $('[mask="money"]').mask('000.000.000.000.000,00', {reverse: true});
+  $('[mask="money2"]').mask("#.##0,00", {reverse: true});
+  $('[mask="ip_address"]').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+    translation: {
+      'Z': {
+        pattern: /[0-9]/, optional: true
+      }
+    }
+  });
+  $('[mask="ip_address"]').mask('099.099.099.099');
+  $('[mask="percent"]').mask('##0,00%', {reverse: true});
+  $('[mask="clear"]-if-not-match').mask("00/00/0000", {clearIfNotMatch: true});
+  $('[mask="placeholder"]').mask("00/00/0000", {placeholder: "__/__/____"});
+  $('[mask="fallback"]').mask("00r00r0000", {
+      translation: {
+        'r': {
+          pattern: /[\/]/,
+          fallback: '/'
+        },
+        placeholder: "__/__/____"
+      }
+    });
+  $('[mask="selectonfocus"]').mask("00/00/0000", {selectOnFocus: true});
+});
   </script>
 </html>
