@@ -49,8 +49,8 @@ class PhoneTypesFixture extends TestFixture
             [
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
-                'created' => '2018-09-07 19:16:44',
-                'updated' => '2018-09-07 19:16:44',
+                'created' => '2018-09-08 20:44:27',
+                'updated' => '2018-09-08 20:44:27',
                 'created_by' => 1,
                 'updated_by' => 1,
                 'status' => 1

@@ -30,9 +30,9 @@ class BlocksTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('blocks');
-        $this->displayField('name');
-        $this->primaryKey('id');
+        $this->setTable('blocks');
+        $this->setDisplayField('name');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
@@ -56,21 +56,21 @@ class BlocksTable extends Table
         $validator
             ->scalar('name')
             ->maxLength('name', 50)
-            ->requirePresence('name', 'create')
+            ->requirePresence('name')
             ->notEmpty('name');
 
         $validator
             ->integer('created_by')
-            ->requirePresence('created_by', 'create')
+            ->requirePresence('created_by')
             ->notEmpty('created_by');
 
         $validator
             ->integer('updated_by')
-            ->requirePresence('updated_by', 'create', 'edit')
+            ->requirePresence('updated_by')
             ->notEmpty('updated_by');
 
         $validator
-            ->requirePresence('status', 'create', 'delete')
+            ->requirePresence('status')
             ->notEmpty('status');
 
         return $validator;

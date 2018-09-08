@@ -54,11 +54,11 @@ class PartyHallSchedulesFixture extends TestFixture
             [
                 'id' => 1,
                 'user_id' => 1,
-                'init_date' => '2018-09-07 19:17:06',
-                'end_date' => '2018-09-07 19:17:06',
+                'init_date' => '2018-09-08 20:44:28',
+                'end_date' => '2018-09-08 20:44:28',
                 'cost' => 1.5,
-                'created' => '2018-09-07 19:17:06',
-                'updated' => '2018-09-07 19:17:06',
+                'created' => '2018-09-08 20:44:28',
+                'updated' => '2018-09-08 20:44:28',
                 'created_by' => 1,
                 'updated_by' => 1,
                 'status' => 1

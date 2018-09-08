@@ -35,7 +35,7 @@ class ApartmentsController extends AppController
             'contain' => ['Users', 'LodgerApartments', 'UserInvoices']
         ]);
 
-        $this->set('apartment', $apartment);
+        $this->set('apartment');
         $this->set('_serialize', ['apartment']);
     }
 

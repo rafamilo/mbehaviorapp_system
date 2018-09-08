@@ -52,7 +52,14 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $routes->connect('/', ['prefix' => 'Admin', 'controller' => 'Index', 'action' => 'index']);
+    // $routes->connect('/blocos/*', ['prefix' => 'Admin', 'controller' => 'Blocks', 'action' => 'index']);
+    // $routes->connect('/usuarios', ['prefix' => 'Admin', 'controller' => 'Users', 'action' => 'index']);
+    // $routes->connect('/telefones', ['prefix' => 'Admin', 'controller' => 'UserPhones', 'action' => 'index']);
+    // $routes->connect('/salao', ['prefix' => 'Admin', 'controller' => 'PartyHallSchedules', 'action' => 'index']);
+    // $routes->connect('/bloco-contas', ['prefix' => 'Admin', 'controller' => 'BlockInvoices', 'action' => 'index']);
+    // $routes->connect('/usuario-contas', ['prefix' => 'Admin', 'controller' => 'UserInvoices', 'action' => 'index']);
+    // $routes->connect('/apartamentos', ['prefix' => 'Admin', 'controller' => 'Apartments', 'action' => 'index']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
@@ -80,5 +87,6 @@ Router::scope('/', function (RouteBuilder $routes) {
         $routes->fallbacks(DashedRoute::class);
     });
     
+    $routes->setExtensions(['json', 'xml']);
     $routes->fallbacks(DashedRoute::class);
 });

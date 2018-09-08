@@ -32,7 +32,7 @@ class BlocksController extends AppController
             'contain' => ['BlockInvoices']
         ]);
 
-        $this->set('block', $block);
+        $this->set('block');
         $this->set('_serialize', ['block']);
     }
 

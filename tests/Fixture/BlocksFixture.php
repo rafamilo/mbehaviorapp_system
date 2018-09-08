@@ -49,8 +49,8 @@ class BlocksFixture extends TestFixture
             [
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
-                'created' => '2018-09-07 19:14:56',
-                'updated' => '2018-09-07 19:14:56',
+                'created' => '2018-09-08 21:23:34',
+                'updated' => '2018-09-08 21:23:34',
                 'created_by' => 1,
                 'updated_by' => 1,
                 'status' => 1

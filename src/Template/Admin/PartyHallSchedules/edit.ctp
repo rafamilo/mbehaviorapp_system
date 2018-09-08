@@ -21,11 +21,11 @@
                     <?= $this->Form->create($partyHallSchedule) ?>
                     <div class="col-12 no-padding row">
                                                     <div class='col-6'>
-                            <?php                                         echo $this->Form->input('init_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($partyHallSchedule->init_date,'dd/MM/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
+                            <?php                                         echo $this->Form->input('init_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($partyHallSchedule->init_date,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                                  ?>
                         </div>
                                                 <div class='col-6'>
-                            <?php                                         echo $this->Form->input('end_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($partyHallSchedule->end_date,'dd/MM/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
+                            <?php                                         echo $this->Form->input('end_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($partyHallSchedule->end_date,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                                  ?>
                         </div>
                                                 <div class='col-6'>

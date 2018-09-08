@@ -35,7 +35,7 @@ class BlockInvoicesController extends AppController
             'contain' => ['Blocks', 'InvoicePlans']
         ]);
 
-        $this->set('blockInvoice', $blockInvoice);
+        $this->set('blockInvoice');
         $this->set('_serialize', ['blockInvoice']);
     }
 

@@ -53,8 +53,8 @@ class InvoicePlansFixture extends TestFixture
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
                 'entry_type_id' => 1,
-                'created' => '2018-09-07 19:15:10',
-                'updated' => '2018-09-07 19:15:10',
+                'created' => '2018-09-08 20:44:21',
+                'updated' => '2018-09-08 20:44:21',
                 'created_by' => 1,
                 'updated_by' => 1,
                 'status' => 1

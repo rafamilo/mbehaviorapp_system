@@ -30,9 +30,9 @@ class PhoneTypesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('phone_types');
-        $this->displayField('name');
-        $this->primaryKey('id');
+        $this->setTable('phone_types');
+        $this->setDisplayField('name');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 

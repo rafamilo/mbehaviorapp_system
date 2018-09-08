@@ -73,13 +73,13 @@
                                         <?= $this->Paginator->sort('created',['label'=>'Dt. Criação']) ?>
                                     </th>
                                                                         <th>
-                                        <?= $this->Paginator->sort('updated') ?>
+                                        <?= $this->Paginator->sort('updated',['label'=>'Dt. Atualizacao']) ?>
                                     </th>
                                                                         <th>
-                                        <?= $this->Paginator->sort('created_by') ?>
+                                        <?= $this->Paginator->sort('created_by',['label'=>'Cadastrado por']) ?>
                                     </th>
                                                                         <th>
-                                        <?= $this->Paginator->sort('updated_by') ?>
+                                        <?= $this->Paginator->sort('updated_by',['label'=>'Atualizador por']) ?>
                                     </th>
                                                                         <th>
                                         <?= $this->Paginator->sort('status') ?>
@@ -93,22 +93,22 @@
                                 <?php foreach ($blocks as $block): ?>
                                 <tr>
                                                                         <td>
-                                        <?= $this->Number->format($block->id) ?>
+                                        <?= h($block->id) ?>
                                     </td>
                                                                         <td>
                                         <?= h($block->name) ?>
                                     </td>
                                                                         <td>
-                                        <?= h($block->created) ?>
+                                        <?= date_format($block->created, 'd/m/Y H:m') ?>
                                     </td>
                                                                         <td>
-                                        <?= h($block->updated) ?>
+                                        <?= date_format($block->updated, 'd/m/Y H:m') ?>
                                     </td>
                                                                         <td>
-                                        <?= $this->Number->format($block->created_by) ?>
+                                        <?= $block->virtualCreatedBy ?>
                                     </td>
                                                                         <td>
-                                        <?= $this->Number->format($block->updated_by) ?>
+                                        <?= $block->virtualUpdatedBy ?>
                                     </td>
                                                                         <td>
                                         <?= h($block->status) ?>

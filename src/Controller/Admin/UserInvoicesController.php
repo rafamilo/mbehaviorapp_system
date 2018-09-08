@@ -35,7 +35,7 @@ class UserInvoicesController extends AppController
             'contain' => ['Users', 'Apartments', 'InvoicePlans']
         ]);
 
-        $this->set('userInvoice', $userInvoice);
+        $this->set('userInvoice');
         $this->set('_serialize', ['userInvoice']);
     }
 

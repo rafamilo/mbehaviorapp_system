@@ -35,7 +35,7 @@ class UsersController extends AppController
             'contain' => ['UserTypes', 'Announcements', 'PartyHallSchedules', 'UserInvoices', 'UserPhones']
         ]);
 
-        $this->set('user', $user);
+        $this->set('user');
         $this->set('_serialize', ['user']);
     }
 

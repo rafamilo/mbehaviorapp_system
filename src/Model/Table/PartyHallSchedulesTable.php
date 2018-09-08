@@ -30,9 +30,9 @@ class PartyHallSchedulesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('party_hall_schedules');
-        $this->displayField('id');
-        $this->primaryKey('id');
+        $this->setTable('party_hall_schedules');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 

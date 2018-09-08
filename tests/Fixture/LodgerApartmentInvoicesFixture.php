@@ -51,8 +51,8 @@ class LodgerApartmentInvoicesFixture extends TestFixture
             [
                 'id' => 1,
                 'lodger_apartment_id' => 1,
-                'created' => '2018-09-07 19:16:15',
-                'updated' => '2018-09-07 19:16:15',
+                'created' => '2018-09-08 20:44:24',
+                'updated' => '2018-09-08 20:44:24',
                 'created_by' => 1,
                 'updated_by' => 1,
                 'status' => 1

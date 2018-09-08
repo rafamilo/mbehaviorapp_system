@@ -32,7 +32,7 @@ class PhoneTypesController extends AppController
             'contain' => ['UserPhones']
         ]);
 
-        $this->set('phoneType', $phoneType);
+        $this->set('phoneType');
         $this->set('_serialize', ['phoneType']);
     }
 

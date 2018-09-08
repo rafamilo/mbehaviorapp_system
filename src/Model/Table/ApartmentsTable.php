@@ -32,9 +32,9 @@ class ApartmentsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('apartments');
-        $this->displayField('name');
-        $this->primaryKey('id');
+        $this->setTable('apartments');
+        $this->setDisplayField('name');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 

@@ -35,7 +35,7 @@ class AnnouncementsController extends AppController
             'contain' => ['Users']
         ]);
 
-        $this->set('announcement', $announcement);
+        $this->set('announcement');
         $this->set('_serialize', ['announcement']);
     }
 

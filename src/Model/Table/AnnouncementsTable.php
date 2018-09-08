@@ -30,9 +30,9 @@ class AnnouncementsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('announcements');
-        $this->displayField('title');
-        $this->primaryKey('id');
+        $this->setTable('announcements');
+        $this->setDisplayField('title');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 

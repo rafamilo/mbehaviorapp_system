@@ -53,8 +53,8 @@ class ApartmentsFixture extends TestFixture
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
                 'owner_id' => 1,
-                'created' => '2018-09-07 19:15:29',
-                'updated' => '2018-09-07 19:15:29',
+                'created' => '2018-09-08 20:44:23',
+                'updated' => '2018-09-08 20:44:23',
                 'created_by' => 1,
                 'updated_by' => 1,
                 'status' => 1

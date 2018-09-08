@@ -32,7 +32,7 @@ class UserTypesController extends AppController
             'contain' => ['Users']
         ]);
 
-        $this->set('userType', $userType);
+        $this->set('userType');
         $this->set('_serialize', ['userType']);
     }
 

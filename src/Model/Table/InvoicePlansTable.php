@@ -32,9 +32,9 @@ class InvoicePlansTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('invoice_plans');
-        $this->displayField('name');
-        $this->primaryKey('id');
+        $this->setTable('invoice_plans');
+        $this->setDisplayField('name');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 

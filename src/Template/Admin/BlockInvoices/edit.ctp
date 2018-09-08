@@ -30,15 +30,15 @@
                                                         <?=$this->Form->input('value',['prepend' => [$this->Form->button("<i class='fa fa-usd no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])], 'type' => 'text', 'mask' => 'money', 'class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
-                            <?php                                         echo $this->Form->input('issue_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($blockInvoice->issue_date,'dd/MM/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
+                            <?php                                         echo $this->Form->input('issue_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($blockInvoice->issue_date,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                                  ?>
                         </div>
                                                 <div class='col-6'>
-                            <?php                                         echo $this->Form->input('expiration_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($blockInvoice->expiration_date,'dd/MM/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
+                            <?php                                         echo $this->Form->input('expiration_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($blockInvoice->expiration_date,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                                  ?>
                         </div>
                                                 <div class='col-6'>
-                            <?php                                         echo $this->Form->input('reference_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($blockInvoice->reference_date,'dd/MM/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
+                            <?php                                         echo $this->Form->input('reference_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($blockInvoice->reference_date,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                                  ?>
                         </div>
                                                 <div class='col-6'>

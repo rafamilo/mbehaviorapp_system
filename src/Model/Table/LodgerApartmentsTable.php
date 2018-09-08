@@ -32,9 +32,9 @@ class LodgerApartmentsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('lodger_apartments');
-        $this->displayField('id');
-        $this->primaryKey('id');
+        $this->setTable('lodger_apartments');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 

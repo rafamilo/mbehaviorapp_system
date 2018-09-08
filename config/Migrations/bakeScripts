@@ -1,14 +1,14 @@
-bin/cake bake controller blocks --prefix admin &&
-bin/cake bake controller block_invoices --prefix admin &&
-bin/cake bake controller invoice_plans --prefix admin &&
-bin/cake bake controller entry_types --prefix admin &&
-bin/cake bake controller apartments --prefix admin &&
-bin/cake bake controller lodger_apartments --prefix admin &&
-bin/cake bake controller lodger_apartment_invoices --prefix admin &&
-bin/cake bake controller users --prefix admin &&
-bin/cake bake controller user_phones --prefix admin &&
-bin/cake bake controller user_types --prefix admin &&
-bin/cake bake controller phone_types --prefix admin &&
-bin/cake bake controller user_invoices --prefix admin &&
-bin/cake bake controller party_hall_schedules --prefix admin &&
-bin/cake bake controller announcements --prefix admin
+bin/cake bake all blocks --prefix admin &&
+bin/cake bake all block_invoices --prefix admin &&
+bin/cake bake all invoice_plans --prefix admin &&
+bin/cake bake all entry_types --prefix admin &&
+bin/cake bake all apartments --prefix admin &&
+bin/cake bake all lodger_apartments --prefix admin &&
+bin/cake bake all lodger_apartment_invoices --prefix admin &&
+bin/cake bake all users --prefix admin &&
+bin/cake bake all user_phones --prefix admin &&
+bin/cake bake all user_types --prefix admin &&
+bin/cake bake all phone_types --prefix admin &&
+bin/cake bake all user_invoices --prefix admin &&
+bin/cake bake all party_hall_schedules --prefix admin &&
+bin/cake bake all announcements --prefix admin

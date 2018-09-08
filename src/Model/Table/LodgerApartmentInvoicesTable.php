@@ -30,9 +30,9 @@ class LodgerApartmentInvoicesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('lodger_apartment_invoices');
-        $this->displayField('id');
-        $this->primaryKey('id');
+        $this->setTable('lodger_apartment_invoices');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 

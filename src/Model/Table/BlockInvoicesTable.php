@@ -31,9 +31,9 @@ class BlockInvoicesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('block_invoices');
-        $this->displayField('id');
-        $this->primaryKey('id');
+        $this->setTable('block_invoices');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 

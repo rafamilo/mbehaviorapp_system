@@ -31,9 +31,9 @@ class UserPhonesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('user_phones');
-        $this->displayField('id');
-        $this->primaryKey('id');
+        $this->setTable('user_phones');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 

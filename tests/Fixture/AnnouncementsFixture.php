@@ -55,8 +55,8 @@ class AnnouncementsFixture extends TestFixture
                 'user_id' => 1,
                 'title' => 'Lorem ipsum dolor sit amet',
                 'message' => 'Lorem ipsum dolor sit amet',
-                'created' => '2018-09-07 19:17:22',
-                'updated' => '2018-09-07 19:17:22',
+                'created' => '2018-09-08 20:44:28',
+                'updated' => '2018-09-08 20:44:28',
                 'created_by' => 1,
                 'updated_by' => 1,
                 'status' => 1

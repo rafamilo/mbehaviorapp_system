@@ -30,9 +30,9 @@ class UserTypesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('user_types');
-        $this->displayField('name');
-        $this->primaryKey('id');
+        $this->setTable('user_types');
+        $this->setDisplayField('name');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 

@@ -32,7 +32,7 @@ class EntryTypesController extends AppController
             'contain' => ['InvoicePlans']
         ]);
 
-        $this->set('entryType', $entryType);
+        $this->set('entryType');
         $this->set('_serialize', ['entryType']);
     }
 

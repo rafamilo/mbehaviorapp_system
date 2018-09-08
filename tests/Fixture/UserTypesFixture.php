@@ -49,8 +49,8 @@ class UserTypesFixture extends TestFixture
             [
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
-                'created' => '2018-09-07 19:16:38',
-                'updated' => '2018-09-07 19:16:38',
+                'created' => '2018-09-08 20:44:26',
+                'updated' => '2018-09-08 20:44:26',
                 'created_by' => 1,
                 'updated_by' => 1,
                 'status' => 1

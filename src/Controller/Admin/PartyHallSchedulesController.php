@@ -35,7 +35,7 @@ class PartyHallSchedulesController extends AppController
             'contain' => ['Users']
         ]);
 
-        $this->set('partyHallSchedule', $partyHallSchedule);
+        $this->set('partyHallSchedule');
         $this->set('_serialize', ['partyHallSchedule']);
     }
 

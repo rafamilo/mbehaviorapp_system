@@ -4,7 +4,7 @@ use Cake\Utility\Inflector;
 
 $fields = collection($fields)
 ->filter(function($field) use ($schema) {
-return $schema->columnType($field) !== 'binary';
+return $schema->getColumnType($field) !== 'binary';
 });
 
 if (isset($modelObject) && $modelObject->behaviors()->has('Tree')) {
@@ -41,7 +41,7 @@ return $field === 'lft' || $field === 'rght';
                                         continue;
                                     }
                                     if (isset($keyFields[$field])) {
-                                        $fieldData = $schema->column($field);
+                                        $fieldData = $schema->getColumn($field);
                                         if(!in_array($field,['situacao_id','user_id','user_up_id'])) {
                                             if (!empty($fieldData['null'])) { %>
                         <div class='col-6'>
@@ -65,12 +65,12 @@ return $field === 'lft' || $field === 'rght';
                                         continue;
                                     }
                                     if (!in_array($field, ['created', 'modified', 'updated'])) {
-                                    $fieldData = $schema->column($field);
-                                    if (($fieldData['type'] === 'date') && (!empty($fieldData['null']))) {
-                                        if($fieldData['type'] === 'date'){ %>
+                                    $fieldData = $schema->getColumn($field);
+                                    if (($fieldData['type'] === 'datetime') && (!empty($fieldData['null']))) {
+                                        if($fieldData['type'] === 'datetime'){ %>
                         <div class='col-6'>
                             <% if (strpos($action, 'add') === false): %>
-                            <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datepicker form-control','value'=>$this->Time->format($<%= $pluralVar %>-><%= $field %>,'dd/MM/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                            <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datepicker form-control','value'=>date_format($<%= $pluralVar %>-><%= $field %>,'d/m/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% else: %>
                             <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% endif; %>
@@ -80,7 +80,7 @@ return $field === 'lft' || $field === 'rght';
                             <% if (strpos($action, 'add') === true): %>
                             <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% else: %>
-                            <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datepicker form-control','value'=>$this->Time->format($<%= $pluralVar %>-><%= $field %>,'dd/MM/Y HH:mm'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                            <?=$this->Form->input('<%= $field %>', ['empty' => true,'type'=>'text','class'=>'datepicker form-control','value'=>date_format($<%= $pluralVar %>-><%= $field %>,'d/m/Y HH:mm'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% endif; %>
                         </div>
                         <% }else{ %>
@@ -89,10 +89,10 @@ return $field === 'lft' || $field === 'rght';
                         </div>
                         <%        }
                                     } else {
-                                    if($fieldData['type'] === 'date') { %>
+                                    if($fieldData['type'] === 'datetime') { %>
                         <div class='col-6'>
                             <% if (strpos($action, 'add') === false): %>
-                            <?=$this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($<%= $pluralVar %>-><%= $field %>,'dd/MM/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                            <?=$this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datepicker form-control','value'=>date_format($<%= $pluralVar %>-><%= $field %>,'d/m/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% else: %>
                             <?=$this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
                             <% endif; %>
@@ -100,7 +100,7 @@ return $field === 'lft' || $field === 'rght';
                         <% }elseif($fieldData['type'] === 'datetime'){ %>
                         <div class='col-6'>
                             <?php <% if (strpos($action, 'add') === false): %>
-                                                echo $this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($<%= $pluralVar %>-><%= $field %>,'dd/MM/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
+                                                echo $this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datepicker form-control','value'=>date_format($<%= $pluralVar %>-><%= $field %>,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                                         <% else: %>
                                                 echo $this->Form->input('<%= $field %>', ['type' => 'text', 'class' => 'datepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                                 <% endif; %> ?>
@@ -164,17 +164,17 @@ return $field === 'lft' || $field === 'rght';
                                     <th>
                                         <?= $this->Paginator->sort('<%= $field %>',['label'=>'Dt. Criação']) ?>
                                     </th>
-                                    <% }else if($field=='user_up_id'){ %>
+                                    <% }else if($field=='created_by'){ %>
                                     <th>
-                                        <?= $this->Paginator->sort('<%= $field %>',['label'=>'Quem Modificou']) ?>
+                                        <?= $this->Paginator->sort('<%= $field %>',['label'=>'Cadastrado por']) ?>
                                     </th>
-                                    <% }else if($field=='user_id'){ %>
+                                    <% }else if($field=='updated_by'){ %>
                                     <th>
-                                        <?= $this->Paginator->sort('<%= $field %>',['label'=>'Quem Cadastrou']) ?>
+                                        <?= $this->Paginator->sort('<%= $field %>',['label'=>'Atualizador por']) ?>
                                     </th>
-                                    <% }else if($field=='modified'){ %>
+                                    <% }else if($field=='updated'){ %>
                                     <th>
-                                        <?= $this->Paginator->sort('<%= $field %>',['label'=>'Dt. Modificação']) ?>
+                                        <?= $this->Paginator->sort('<%= $field %>',['label'=>'Dt. Atualizacao']) ?>
                                     </th>
                                     <% }else{ %>
                                     <th>
@@ -205,16 +205,34 @@ return $field === 'lft' || $field === 'rght';
                                         }
                                         }
                                         if ($isKey !== true) {
-                                        if (!in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
+                                        if (!in_array($schema->getColumnType($field), ['integer', 'biginteger', 'decimal', 'float', 'datetime'])) {
                                         %>
                                     <td>
                                         <?= h($<%= $singularVar %>-><%= $field %>) ?>
                                     </td>
                                     <%
+                                        } else if ($field == 'created' || $field == 'updated'){
+                                        %>
+                                    <td>
+                                        <?= date_format($<%= $singularVar %>-><%= $field %>, 'd/m/Y H:m') ?>
+                                    </td>
+                                    <%
+                                        } else if ($field=='created_by'){
+                                        %>
+                                    <td>
+                                        <?= $<%= $singularVar %>->virtualCreatedBy ?>
+                                    </td>
+                                    <%
+                                        } else if ($field=='updated_by'){
+                                        %>
+                                    <td>
+                                        <?= $<%= $singularVar %>->virtualUpdatedBy ?>
+                                    </td>
+                                    <%
                                         } else {
                                         %>
                                     <td>
-                                        <?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?>
+                                        <?= h($<%= $singularVar %>-><%= $field %>) ?>
                                     </td>
                                     <%
                                         }

@@ -32,9 +32,9 @@ class UserInvoicesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('user_invoices');
-        $this->displayField('id');
-        $this->primaryKey('id');
+        $this->setTable('user_invoices');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 

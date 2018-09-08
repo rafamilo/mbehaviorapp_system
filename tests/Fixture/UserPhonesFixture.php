@@ -57,8 +57,8 @@ class UserPhonesFixture extends TestFixture
                 'user_id' => 1,
                 'phone' => 1,
                 'phone_type_id' => 1,
-                'created' => '2018-09-07 19:16:32',
-                'updated' => '2018-09-07 19:16:32',
+                'created' => '2018-09-08 20:44:25',
+                'updated' => '2018-09-08 20:44:25',
                 'created_by' => 1,
                 'updated_by' => 1,
                 'status' => 1

@@ -35,7 +35,7 @@ class LodgerApartmentInvoicesController extends AppController
             'contain' => ['LodgerApartments']
         ]);
 
-        $this->set('lodgerApartmentInvoice', $lodgerApartmentInvoice);
+        $this->set('lodgerApartmentInvoice');
         $this->set('_serialize', ['lodgerApartmentInvoice']);
     }
 

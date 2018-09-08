@@ -35,7 +35,7 @@ class UserPhonesController extends AppController
             'contain' => ['Users', 'PhoneTypes']
         ]);
 
-        $this->set('userPhone', $userPhone);
+        $this->set('userPhone');
         $this->set('_serialize', ['userPhone']);
     }
 

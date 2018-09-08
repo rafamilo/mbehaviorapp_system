@@ -36,6 +36,7 @@ if (!isset($fields) || $fields !== false) {
 namespace <%= $namespace %>\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\ORM\TableRegistry;
 
 /**
  * <%= $name %> Entity.
@@ -81,4 +82,13 @@ class <%= $name %> extends Entity
 <% if (empty($accessible) && empty($hidden)): %>
 
 <% endif %>
+    protected function _getVirtualCreatedBy()
+    {   
+        return TableRegistry::get('Users')->get($this->_properties['created_by'])->name;
+    }
+
+    protected function _getVirtualUpdatedBy()
+    {   
+        return TableRegistry::get('Users')->get($this->_properties['updated_by'])->name;
+    }
 }
