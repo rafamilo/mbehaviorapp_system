@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="/admin/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="/admin/vendors/css/vendor.bundle.addons.css">
   <link rel="stylesheet" href="/css/meuappe.css">
+  <link rel="stylesheet" href="/css/fullcalendar.min.css">
+  <!-- <link rel="stylesheet" href="/css/fullcalendar.print.css"> -->
   <link rel="stylesheet" href="/css/jquery-ui.min.css">
   <script src="/js/sweetalert.min.js"></script>
   <script src="/js/sweetAlertFunctions.js"></script>
@@ -56,6 +58,8 @@
   <script src="/admin/js/off-canvas.js"></script>
   <script src="/admin/js/misc.js"></script>
   <script src="/js/jquery-ui.min.js"></script>
+  <script src="/js/fullcalendar-locale-all.js"></script>
+  <script src="/js/fullcalendar.min.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="/admin/js/dashboard.js"></script>
@@ -66,7 +70,27 @@
 </body>
 <script>
   $(document).ready(function(){
-    $( ".datepicker" ).datepicker();
+  $('#calendar').fullCalendar({
+    locale: 'pt-br',
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay,listWeek'
+    },
+    navLinks: true, // can click day/week names to navigate views
+    editable: true,
+    selectable: true,
+    eventLimit: true,
+    buttonText: {
+      today: 'hoje',
+      month: 'mes',
+      week: 'semana',
+      day: 'dia',
+      list: 'lista'
+    },
+    timezone: 'America/Cuiaba'
+  })
+  $('.datepicker').datepicker();
   $('[mask="date"]').mask('00/00/0000');
   $('[mask="time"]').mask('00:00:00');
   $('[mask="date_time"]').mask('00/00/0000 00:00:00');
