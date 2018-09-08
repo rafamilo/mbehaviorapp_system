@@ -31,7 +31,7 @@
                                                          ?>
                         </div>
                                                 <div class='col-6'>
-                                                        <?=$this->Form->input('cpf', ['class'=>'form-control', 'mask' => 'cpf', 'type' => 'text']); ?>
+                                                        <?=$this->Form->input('cpf', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
                                                         <?=$this->Form->input('rg', ['class'=>'form-control']); ?>

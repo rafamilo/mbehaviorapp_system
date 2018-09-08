@@ -19,9 +19,7 @@
         $<%= $singularName %> = $this-><%= $currentModelName %>->get($id);
         <% if($currentModelName!= 'SituacaoCadastros'): %>
         
-        $this->request->data['status'] = 0;
-        $this->request->data = $this->PatchTimeEntity($this-><%= $currentModelName %>, $this->request->data, $<%= $singularName %>);
-        $<%= $singularName %> = $this-><%= $currentModelName %>->patchEntity($<%= $singularName %>, $this->request->data);
+        $<%= $singularName %> = $this->PatchTimeStamp->PatchTimeEntity($this-><%= $currentModelName %>, $this->request->data, $<%= $singularName %>, true);
 
         if ($this-><%= $currentModelName; %>->save($<%= $singularName %>)) {
             $this->Flash->success(__('O <%= strtolower($singularHumanName) %> foi deletado com sucesso.'));

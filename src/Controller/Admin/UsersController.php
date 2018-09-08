@@ -23,7 +23,6 @@ class UsersController extends AppController
         $this->paginate = [
             'contain' => ['UserTypes']
         ];
-        $this->Flash->success(__('O user foi deletado com sucesso.'));
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
@@ -45,8 +44,7 @@ class UsersController extends AppController
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
 
-            $this->request->data = $this->PatchTimeEntity($this->Users, $this->request->data, $user);
-            $user = $this->Users->patchEntity($user, $this->request->data);
+            $user = $this->PatchTimeStamp->PatchTimeEntity($this->Users, $this->request->data, $user, false);
             
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('O user foi salvo com sucesso!'));
@@ -67,9 +65,8 @@ class UsersController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
 
-            $this->request->data = $this->PatchTimeEntity($this->Users, $this->request->data, $user);
-            $user = $this->Users->patchEntity($user, $this->request->data);
-            
+            $user = $this->PatchTimeStamp->PatchTimeEntity($this->Users, $this->request->data, $user, false);
+                        
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('O user foi salvo com sucesso.'));
                 return $this->redirect(['action' => 'index']);
@@ -86,9 +83,7 @@ class UsersController extends AppController
     {
         $user = $this->Users->get($id);
                 
-        $this->request->data['status'] = 0;
-        $this->request->data = $this->PatchTimeEntity($this->Users, $this->request->data, $user);
-        $user = $this->Users->patchEntity($user, $this->request->data);
+        $user = $this->PatchTimeStamp->PatchTimeEntity($this->Users, $this->request->data, $user, true);
 
         if ($this->Users->save($user)) {
             $this->Flash->success(__('O user foi deletado com sucesso.'));
