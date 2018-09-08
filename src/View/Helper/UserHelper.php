@@ -5,9 +5,9 @@ use Cake\View\Helper;
 use Cake\View\View;
 
 /**
- * Html helper
+ * User helper
  */
-class HtmlHelper extends Helper
+class UserHelper extends Helper
 {
 
     /**
@@ -17,8 +17,4 @@ class HtmlHelper extends Helper
      */
     protected $_defaultConfig = [];
 
-    public function icon($class)
-    {
-        return '<i class="fa fa-{{class}}"></i>';
-    }
 }
