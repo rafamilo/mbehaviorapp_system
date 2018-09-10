@@ -60,6 +60,7 @@
   <script src="/js/jquery-ui.min.js"></script>
   <script src="/js/fullcalendar-locale-all.js"></script>
   <script src="/js/fullcalendar.min.js"></script>
+  <script src="/js/moment.min.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="/admin/js/dashboard.js"></script>
@@ -88,7 +89,21 @@
       day: 'dia',
       list: 'lista'
     },
-    timezone: 'America/Cuiaba'
+    timezone: 'America/Cuiaba',
+    select: function (start, end, jsEvent, view) {
+      let abc = prompt('Enter Title');
+      let allDay = !start.hasTime && !end.hasTime;
+      let newEvent = new Object();
+      newEvent.title = abc;
+      newEvent.start = moment(start).format();
+      newEvent.allDay = false;
+      $('#calendar').fullCalendar('renderEvent', newEvent);
+      console.log(start);
+      console.log(end);
+      console.log(jsEvent);
+      console.log(view);
+      console.log(newEvent);
+    }
   })
   $('.datepicker').datepicker();
   $('[mask="date"]').mask('00/00/0000');
