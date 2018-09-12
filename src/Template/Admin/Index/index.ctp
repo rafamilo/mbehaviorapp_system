@@ -1,5 +1,219 @@
 <div class="content-wrapper">
   <div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-4">Calendario Salao de festas</h5>
+          <div id='calendar'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-4">Avisos</h5>
+          <div class="fluid-container">
+            <div class="row ticket-card mt-3 pb-2 border-bottom">
+              <div class="col-1">
+                <img class="img-sm rounded-circle" src="/img/faces/face1.jpg" alt="profile image">
+              </div>
+              <div class="ticket-details col-9">
+                <div class="d-flex">
+                  <p class="text-primary font-weight-bold mr-2 mb-0 no-wrap">Fernando :</p>
+                  <p class="font-weight-medium mr-1 mb-0">[#5]</p>
+                  <p class="font-weight-bold mb-0 ellipsis">Reuniao dos moradores.</p>
+                </div>
+                <p class="text-small text-gray">Confirme presenca na reuniao!.</p>
+                <div class="row text-muted d-flex">
+                  <div class="col-4 d-flex">
+                    <p class="mb-0 mr-2">Ultima resposta :</p>
+                    <p class="Last-responded mr-2 mb-0">3 horas atras</p>
+                  </div>
+                  <div class="col-4 d-flex">
+                    <p class="mb-0 mr-2">Termina em :</p>
+                    <p class="Last-responded mr-2 mb-0">2 Dias</p>
+                  </div>
+                </div>
+                <div class="row text-muted d-flex">
+                  <div class="col-12 d-flex">
+                    <p class="mb-0 mr-2">data:</p>
+                    <p class="Last-responded mr-2 mb-0">10/09/2018 as 18:00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="ticket-actions col-2">
+                <div class="btn-group dropdown">
+                  <button type="button" class="btn btn-teal dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Opcoes
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#"><i class="fa fa-reply fa-fw"></i>Responder</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-comment-o fa-fw"></i>Chat</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success fa-fw"></i>Confirmar</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-times text-danger fa-fw"></i>Cancelar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row ticket-card mt-3 pb-2 border-bottom">
+              <div class="col-1">
+                <img class="img-sm rounded-circle" src="/img/faces/face2.jpg" alt="profile image">
+              </div>
+              <div class="ticket-details col-9">
+                <div class="d-flex">
+                  <p class="text-primary font-weight-bold mr-2 mb-0 no-wrap">Mariane :</p>
+                  <p class="font-weight-medium mr-1 mb-0">[#4]</p>
+                  <p class="font-weight-bold mb-0 ellipsis">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
+                    amet totam, dignissimos fugiat voluptates, ab magni, necessitatibus excepturi inventore, mollitia ipsa
+                    quaerat aliquam.</p>
+                </div>
+                <p class="text-small text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae animi
+                  omnis, a?</p>
+                <div class="row text-muted d-flex">
+                  <div class="col-12 d-flex">
+                    <p class="mb-0 mr-2">data:</p>
+                    <p class="Last-responded mr-2 mb-0">10/09/2018 as 18:00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="ticket-actions col-2">
+                <div class="btn-group dropdown">
+                  <button type="button" class="btn btn-teal dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Opcoes
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#"><i class="fa fa-reply fa-fw"></i>Responder</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-comment-o fa-fw"></i>Chat</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success fa-fw"></i>Confirmar</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-times text-danger fa-fw"></i>Cancelar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row ticket-card mt-3 pb-2 border-bottom">
+              <div class="col-1">
+                <img class="img-sm rounded-circle" src="/img/faces/face3.jpg" alt="profile image">
+              </div>
+              <div class="ticket-details col-9">
+                <div class="d-flex">
+                  <p class="text-primary font-weight-bold mr-2 mb-0 no-wrap">Vinicius :</p>
+                  <p class="font-weight-medium mr-1 mb-0">[#3]</p>
+                  <p class="font-weight-bold mb-0 ellipsis">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
+                    amet totam, dignissimos fugiat voluptates, ab magni, necessitatibus excepturi inventore, mollitia ipsa
+                    quaerat aliquam.</p>
+                </div>
+                <p class="text-small text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae animi
+                  omnis, a?</p>
+                <div class="row text-muted d-flex">
+                  <div class="col-12 d-flex">
+                    <p class="mb-0 mr-2">data:</p>
+                    <p class="Last-responded mr-2 mb-0">10/09/2018 as 17:40</p>
+                  </div>
+                </div>
+              </div>
+              <div class="ticket-actions col-2">
+                <div class="btn-group dropdown">
+                  <button type="button" class="btn btn-teal dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Opcoes
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#"><i class="fa fa-reply fa-fw"></i>Responder</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-comment-o fa-fw"></i>Chat</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success fa-fw"></i>Confirmar</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-times text-danger fa-fw"></i>Cancelar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row ticket-card mt-3 pb-2 border-bottom">
+              <div class="col-1">
+                <img class="img-sm rounded-circle" src="/img/faces/face4.jpg" alt="profile image">
+              </div>
+              <div class="ticket-details col-9">
+                <div class="d-flex">
+                  <p class="text-primary font-weight-bold mr-2 mb-0 no-wrap">Renato :</p>
+                  <p class="font-weight-medium mr-1 mb-0">[#2]</p>
+                  <p class="font-weight-bold mb-0 ellipsis">Lorem ipsum dolor sit amet, consectetur.</p>
+                </div>
+                <p class="text-small text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum sequi a,
+                  nostrum.</p>
+                <div class="row text-muted d-flex">
+                  <div class="col-4 d-flex">
+                    <p class="mb-0 mr-2">Last responded :</p>
+                    <p class="Last-responded mr-2 mb-0">3 hours ago</p>
+                  </div>
+                  <div class="col-4 d-flex">
+                    <p class="mb-0 mr-2">Due in :</p>
+                    <p class="Last-responded mr-2 mb-0">2 Days</p>
+                  </div>
+                </div>
+              </div>
+              <div class="ticket-actions col-2">
+                <div class="btn-group dropdown">
+                  <button type="button" class="btn btn-teal dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Opcoes
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#"><i class="fa fa-reply fa-fw"></i>Responder</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-comment-o fa-fw"></i>Chat</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success fa-fw"></i>Confirmar</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-times text-danger fa-fw"></i>Cancelar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row ticket-card mt-3 pb-2">
+              <div class="col-1">
+                <img class="img-sm rounded-circle" src="/img/faces/face5.jpg" alt="profile image">
+              </div>
+              <div class="ticket-details col-9">
+                <div class="d-flex">
+                  <p class="text-primary font-weight-bold mr-2 mb-0 no-wrap">Marina :</p>
+                  <p class="font-weight-medium mr-1 mb-0">[#1]</p>
+                  <p class="font-weight-bold mb-0 ellipsis">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
+                    amet totam, dignissimos fugiat voluptates, ab magni, necessitatibus excepturi inventore, mollitia ipsa
+                    quaerat aliquam.</p>
+                </div>
+                <p class="text-small text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae animi
+                  omnis, a?</p>
+                <div class="row text-muted d-flex">
+                  <div class="col-4 d-flex">
+                    <p class="mb-0 mr-2">Last responded :</p>
+                    <p class="Last-responded mr-2 mb-0">3 hours ago</p>
+                  </div>
+                  <div class="col-4 d-flex">
+                    <p class="mb-0 mr-2">Due in :</p>
+                    <p class="Last-responded mr-2 mb-0">2 Days</p>
+                  </div>
+                </div>
+              </div>
+              <div class="ticket-actions col-2">
+                <div class="btn-group dropdown">
+                  <button type="button" class="btn btn-teal dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Opcoes
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#"><i class="fa fa-reply fa-fw"></i>Responder</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-comment-o fa-fw"></i>Chat</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success fa-fw"></i>Confirmar</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-times text-danger fa-fw"></i>Cancelar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
       <div class="card card-statistics">
         <div class="card-body">
@@ -8,14 +222,14 @@
               <i class="mdi mdi-cube text-danger icon-lg"></i>
             </div>
             <div class="float-right">
-              <p class="card-text text-right">Total Revenue</p>
+              <p class="card-text text-right">Caixa</p>
               <div class="fluid-container">
-                <h3 class="card-title font-weight-bold text-right mb-0">$65,650</h3>
+                <h3 class="card-title font-weight-bold text-right mb-0">R$65.650</h3>
               </div>
             </div>
           </div>
           <p class="text-muted mt-3">
-            <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 65% lower growth
+            <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 5% abaixo do mes passado
           </p>
         </div>
       </div>
@@ -28,14 +242,14 @@
               <i class="mdi mdi-receipt text-warning icon-lg"></i>
             </div>
             <div class="float-right">
-              <p class="card-text text-right">Orders</p>
+              <p class="card-text text-right">Qt Moradores</p>
               <div class="fluid-container">
-                <h3 class="card-title font-weight-bold text-right mb-0">3455</h3>
+                <h3 class="card-title font-weight-bold text-right mb-0">127</h3>
               </div>
             </div>
           </div>
           <p class="text-muted mt-3">
-            <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Product-wise sales
+            <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Listar moradores
           </p>
         </div>
       </div>
@@ -48,14 +262,14 @@
               <i class="mdi mdi-poll-box text-teal icon-lg"></i>
             </div>
             <div class="float-right">
-              <p class="card-text text-right">Sales</p>
+              <p class="card-text text-right">Apes alugados</p>
               <div class="fluid-container">
-                <h3 class="card-title font-weight-bold text-right mb-0">5693</h3>
+                <h3 class="card-title font-weight-bold text-right mb-0">40</h3>
               </div>
             </div>
           </div>
           <p class="text-muted mt-3">
-            <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> Weekly Sales
+            <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> Ver Apartamentos alugados
           </p>
         </div>
       </div>
@@ -68,14 +282,14 @@
               <i class="mdi mdi-account-location text-info icon-lg"></i>
             </div>
             <div class="float-right">
-              <p class="card-text text-right">Employees</p>
+              <p class="card-text text-right">Funcionarios</p>
               <div class="fluid-container">
-                <h3 class="card-title font-weight-bold text-right mb-0">246</h3>
+                <h3 class="card-title font-weight-bold text-right mb-0">8</h3>
               </div>
             </div>
           </div>
           <p class="text-muted mt-3">
-            <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Product-wise sales
+            <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Ver funcionarios
           </p>
         </div>
       </div>
@@ -273,215 +487,4 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12 grid-margin">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title mb-4">Manage Tickets</h5>
-          <div class="fluid-container">
-            <div class="row ticket-card mt-3 pb-2 border-bottom">
-              <div class="col-1">
-                <img class="img-sm rounded-circle" src="/img/faces/face1.jpg" alt="profile image">
-              </div>
-              <div class="ticket-details col-9">
-                <div class="d-flex">
-                  <p class="text-primary font-weight-bold mr-2 mb-0 no-wrap">James :</p>
-                  <p class="font-weight-medium mr-1 mb-0">[#23047]</p>
-                  <p class="font-weight-bold mb-0 ellipsis">Lorem ipsum dolor sit amet, consectetur.</p>
-                </div>
-                <p class="text-small text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum sequi a,
-                  nostrum.</p>
-                <div class="row text-muted d-flex">
-                  <div class="col-4 d-flex">
-                    <p class="mb-0 mr-2">Last responded :</p>
-                    <p class="Last-responded mr-2 mb-0">3 hours ago</p>
-                  </div>
-                  <div class="col-4 d-flex">
-                    <p class="mb-0 mr-2">Due in :</p>
-                    <p class="Last-responded mr-2 mb-0">2 Days</p>
-                  </div>
-                </div>
-              </div>
-              <div class="ticket-actions col-2">
-                <div class="btn-group dropdown">
-                  <button type="button" class="btn btn-teal dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Manage
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#"><i class="fa fa-reply fa-fw"></i>Quick reply</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-history fa-fw"></i>Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success fa-fw"></i>Resolve Issue</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-times text-danger fa-fw"></i>Close Issue</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row ticket-card mt-3 pb-2 border-bottom">
-              <div class="col-1">
-                <img class="img-sm rounded-circle" src="/img/faces/face2.jpg" alt="profile image">
-              </div>
-              <div class="ticket-details col-9">
-                <div class="d-flex">
-                  <p class="text-primary font-weight-bold mr-2 mb-0 no-wrap">Stella :</p>
-                  <p class="font-weight-medium mr-1 mb-0">[#23135]</p>
-                  <p class="font-weight-bold mb-0 ellipsis">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente.</p>
-                </div>
-                <p class="text-small text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi voluptates
-                  fuga quae?</p>
-                <div class="row text-muted d-flex">
-                  <div class="col-4 d-flex">
-                    <p class="mb-0 mr-2">Last responded :</p>
-                    <p class="Last-responded mr-2 mb-0">3 hours ago</p>
-                  </div>
-                  <div class="col-4 d-flex">
-                    <p class="mb-0 mr-2">Due in :</p>
-                    <p class="Last-responded mr-2 mb-0">2 Days</p>
-                  </div>
-                </div>
-              </div>
-              <div class="ticket-actions col-2">
-                <div class="btn-group dropdown">
-                  <button type="button" class="btn btn-teal dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Manage
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#"><i class="fa fa-reply fa-fw"></i>Quick reply</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-history fa-fw"></i>Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success fa-fw"></i>Resolve Issue</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-times text-danger fa-fw"></i>Close Issue</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row ticket-card mt-3 pb-2 border-bottom">
-              <div class="col-1">
-                <img class="img-sm rounded-circle" src="/img/faces/face3.jpg" alt="profile image">
-              </div>
-              <div class="ticket-details col-9">
-                <div class="d-flex">
-                  <p class="text-primary font-weight-bold mr-2 mb-0 no-wrap">John Doe :</p>
-                  <p class="font-weight-medium mr-1 mb-0">[#23246]</p>
-                  <p class="font-weight-bold mb-0 ellipsis">Lorem ipsum dolor sit amet.</p>
-                </div>
-                <p class="text-small text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <div class="row text-muted d-flex">
-                  <div class="col-4 d-flex">
-                    <p class="mb-0 mr-2">Last responded :</p>
-                    <p class="Last-responded mr-2 mb-0">3 hours ago</p>
-                  </div>
-                  <div class="col-4 d-flex">
-                    <p class="mb-0 mr-2">Due in :</p>
-                    <p class="Last-responded mr-2 mb-0">2 Days</p>
-                  </div>
-                </div>
-              </div>
-              <div class="ticket-actions col-2">
-                <div class="btn-group dropdown">
-                  <button type="button" class="btn btn-teal dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Manage
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#"><i class="fa fa-reply fa-fw"></i>Quick reply</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-history fa-fw"></i>Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success fa-fw"></i>Resolve Issue</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-times text-danger fa-fw"></i>Close Issue</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row ticket-card mt-3 pb-2 border-bottom">
-              <div class="col-1">
-                <img class="img-sm rounded-circle" src="/img/faces/face4.jpg" alt="profile image">
-              </div>
-              <div class="ticket-details col-9">
-                <div class="d-flex">
-                  <p class="text-primary font-weight-bold mr-2 mb-0 no-wrap">Marques Brownlee :</p>
-                  <p class="font-weight-medium mr-1 mb-0">[#23047]</p>
-                  <p class="font-weight-bold mb-0 ellipsis">Lorem ipsum dolor sit amet, consectetur.</p>
-                </div>
-                <p class="text-small text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum sequi a,
-                  nostrum.</p>
-                <div class="row text-muted d-flex">
-                  <div class="col-4 d-flex">
-                    <p class="mb-0 mr-2">Last responded :</p>
-                    <p class="Last-responded mr-2 mb-0">3 hours ago</p>
-                  </div>
-                  <div class="col-4 d-flex">
-                    <p class="mb-0 mr-2">Due in :</p>
-                    <p class="Last-responded mr-2 mb-0">2 Days</p>
-                  </div>
-                </div>
-              </div>
-              <div class="ticket-actions col-2">
-                <div class="btn-group dropdown">
-                  <button type="button" class="btn btn-teal dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Manage
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#"><i class="fa fa-reply fa-fw"></i>Quick reply</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-history fa-fw"></i>Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success fa-fw"></i>Resolve Issue</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-times text-danger fa-fw"></i>Close Issue</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row ticket-card mt-3 pb-2">
-              <div class="col-1">
-                <img class="img-sm rounded-circle" src="/img/faces/face5.jpg" alt="profile image">
-              </div>
-              <div class="ticket-details col-9">
-                <div class="d-flex">
-                  <p class="text-primary font-weight-bold mr-2 mb-0 no-wrap">Marina John :</p>
-                  <p class="font-weight-medium mr-1 mb-0">[#23034]</p>
-                  <p class="font-weight-bold mb-0 ellipsis">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
-                    amet totam, dignissimos fugiat voluptates, ab magni, necessitatibus excepturi inventore, mollitia ipsa
-                    quaerat aliquam.</p>
-                </div>
-                <p class="text-small text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae animi
-                  omnis, a?</p>
-                <div class="row text-muted d-flex">
-                  <div class="col-4 d-flex">
-                    <p class="mb-0 mr-2">Last responded :</p>
-                    <p class="Last-responded mr-2 mb-0">3 hours ago</p>
-                  </div>
-                  <div class="col-4 d-flex">
-                    <p class="mb-0 mr-2">Due in :</p>
-                    <p class="Last-responded mr-2 mb-0">2 Days</p>
-                  </div>
-                </div>
-              </div>
-              <div class="ticket-actions col-2">
-                <div class="btn-group dropdown">
-                  <button type="button" class="btn btn-teal dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Manage
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#"><i class="fa fa-reply fa-fw"></i>Quick reply</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-history fa-fw"></i>Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success fa-fw"></i>Resolve Issue</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-times text-danger fa-fw"></i>Close Issue</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 grid-margin">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title mb-4">Calendario Salao de festas</h5>
-          <div id='calendar'></div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>

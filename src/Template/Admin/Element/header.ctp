@@ -1,10 +1,12 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-    <a class="navbar-brand brand-logo" href="/admin">
-      <img src="/img/home/livinglab-logo-nome.png" alt="logo" />
+    <a class="navbar-brand brand-logo" href="/">
+      <h4 style="color: black; margin-top: 15px">Nome do condominio</h4>
+      <!-- <img src="/img/home/livinglab-logo-nome.png" alt="logo" /> -->
     </a>
-    <a class="navbar-brand brand-logo-mini" href="/admin">
-      <img src="/img/home/livinglab-logo.png" alt="logo" />
+    <a class="navbar-brand brand-logo-mini" href="/">
+      <h4 style="color: black; margin-top: 15px">NdC</h4>
+      <!-- <img src="/img/home/livinglab-logo.png" alt="logo" /> -->
     </a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -40,8 +42,8 @@
                 <img src="/img/faces/face4.jpg" alt="image" class="profile-pic">
             </div>
             <div class="preview-item-content">
-              <strong class="preview-subject font-weight-medium">Fernando</strong>
-              <h6 class="preview-subject font-weight-medium">adicionou uma foto</h6>
+              <strong class="preview-subject font-weight-medium">Rodrigo</strong>
+              <h6 class="preview-subject font-weight-medium">Editou uma conta</h6>
               <p class="font-weight-light small-text">
                 <?= date('d/m/Y').' as '.date('H:i')?>
               </p>
@@ -54,7 +56,7 @@
             </div>
             <div class="preview-item-content">
               <strong class="preview-subject font-weight-medium">Janaina</strong>
-              <h6 class="preview-subject font-weight-medium">agendou uma sala</h6>
+              <h6 class="preview-subject font-weight-medium">agendou o pagamento de uma conta</h6>
               <p class="font-weight-light small-text">
                 <?= date('d/m/Y').' as '.date('H:i')?>
               </p>
@@ -67,7 +69,7 @@
             </div>
             <div class="preview-item-content">
               <strong class="preview-subject font-weight-medium">Janaina</strong>
-              <h6 class="preview-subject font-weight-medium">Entrou na startup</h6>
+              <h6 class="preview-subject font-weight-medium">Lancou uma conta</h6>
               <p class="font-weight-light small-text">
                 <?= date('d/m/Y').' as '.date('H:i')?>
               </p>
