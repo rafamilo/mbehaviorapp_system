@@ -3,7 +3,7 @@
     <div class="col-12 grid-margin">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title mb-4">Calendario Salao de festas</h5>
+          <h5 class="card-title mb-4">Agenda - Salao de festas</h5>
           <div id='calendar'></div>
         </div>
       </div>

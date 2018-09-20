@@ -32,7 +32,7 @@ class BlocksController extends AppController
             'contain' => ['BlockInvoices']
         ]);
 
-        $this->set('block');
+        $this->set(compact('block'));
         $this->set('_serialize', ['block']);
     }
 
@@ -89,4 +89,5 @@ class BlocksController extends AppController
         }
                 
         return $this->redirect(['action' => 'index']);
-    }}
+    }
+}

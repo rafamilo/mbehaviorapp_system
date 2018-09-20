@@ -35,7 +35,7 @@ class BlockInvoicesController extends AppController
             'contain' => ['Blocks', 'InvoicePlans']
         ]);
 
-        $this->set('blockInvoice');
+        $this->set(compact('blockInvoice'));
         $this->set('_serialize', ['blockInvoice']);
     }
 
@@ -54,8 +54,11 @@ class BlockInvoicesController extends AppController
             }
         }
 
-        $this->set(compact('blockInvoice'));
-        $this->set('_serialize', ['blockInvoice']);
+        $blocks = $this->BlockInvoices->Blocks->find('list');
+        $invoicePlans = $this->BlockInvoices->InvoicePlans->find('list');
+
+        $this->set(compact('blockInvoice', 'blocks', 'invoicePlans'));
+        $this->set('_serialize', ['blockInvoice', 'blocks', 'invoicePlans']);
     }
 
     public function edit($id = null)
@@ -92,4 +95,5 @@ class BlockInvoicesController extends AppController
         }
                 
         return $this->redirect(['action' => 'index']);
-    }}
+    }
+}
