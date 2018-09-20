@@ -105,7 +105,9 @@
       console.log(newEvent);
     }
   })
-  $('.datepicker').datepicker();
+  $('.datepicker').datepicker({
+    "dateFormat": "dd/mm/yy"
+  });
   $('[mask="date"]').mask('00/00/0000');
   $('[mask="time"]').mask('00:00:00');
   $('[mask="date_time"]').mask('00/00/0000 00:00:00');

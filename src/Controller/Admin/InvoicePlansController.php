@@ -35,7 +35,7 @@ class InvoicePlansController extends AppController
             'contain' => ['EntryTypes', 'BlockInvoices', 'UserInvoices']
         ]);
 
-        $this->set('invoicePlan');
+        $this->set(compact('invoicePlan'));
         $this->set('_serialize', ['invoicePlan']);
     }
 
