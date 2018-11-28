@@ -24,7 +24,7 @@
                                                         <?=$this->Form->input('name', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
-                                                        <?=$this->Form->input('owner_id', ['data'=>'select','controller'=>'users','action'=>'fill','data-value'=>$apartments->owner_id, 'class'=>'form-control']); ?>
+                                                        <?=$this->Form->input('owner_id', ['data'=>'select','controller'=>'users','action'=>'fill','data-value'=>@$apartments->owner_id, 'class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
                                                         <?=$this->Form->input('created_by', ['class'=>'form-control']); ?>

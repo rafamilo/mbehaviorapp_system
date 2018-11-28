@@ -76,7 +76,11 @@ Router::scope('/', function (RouteBuilder $routes) {
     // $routes->connect('/salao', ['prefix' => 'Admin', 'controller' => 'PartyHallSchedules', 'action' => 'index']);
     // $routes->connect('/bloco-contas', ['prefix' => 'Admin', 'controller' => 'BlockInvoices', 'action' => 'index']);
     // $routes->connect('/usuario-contas', ['prefix' => 'Admin', 'controller' => 'UserInvoices', 'action' => 'index']);
-    // $routes->connect('/apartamentos', ['prefix' => 'Admin', 'controller' => 'Apartments', 'action' => 'index']);
+    $routes->connect('/apartamentos', ['prefix' => 'Admin', 'controller' => 'Apartments', 'action' => 'index']);
+    $routes->connect('/apartamentos/add', ['prefix' => 'Admin', 'controller' => 'Apartments', 'action' => 'add']);
+    $routes->connect('/apartamentos/view/*', ['prefix' => 'Admin', 'controller' => 'Apartments', 'action' => 'view']);
+    $routes->connect('/apartamentos/edit/*', ['prefix' => 'Admin', 'controller' => 'Apartments', 'action' => 'edit']);
+    $routes->connect('/apartamentos/delete/*', ['prefix' => 'Admin', 'controller' => 'Apartments', 'action' => 'delete']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

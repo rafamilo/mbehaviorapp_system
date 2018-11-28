@@ -71,16 +71,24 @@
 </body>
 <script>
   $(document).ready(function(){
+  $.ajax({
+    url: 'http://localhost:8765/party-hall-schedules.json'
+  }).done(data => {
+    console.log(data);
+  }).fail();
+
   $('#calendar').fullCalendar({
     locale: 'pt-br',
     header: {
       left: 'prev,next today',
       center: 'title',
-      right: 'month,agendaWeek,agendaDay,listWeek'
+      right: 'month'
     },
     navLinks: true, // can click day/week names to navigate views
     editable: true,
     selectable: true,
+    selectHelder: true,
+    selectOverlap: false,
     eventLimit: true,
     buttonText: {
       today: 'hoje',
@@ -89,20 +97,103 @@
       day: 'dia',
       list: 'lista'
     },
+    events: [
+        {
+          title: 'All Day Event',
+          start: '2018-11-01',
+        },
+        {
+          title: 'Long Event',
+          start: '2018-11-07'
+          
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-11-09'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-11-16'
+        },
+        {
+          title: 'Conference',
+          start: '2018-11-11'
+          
+        },
+        {
+          title: 'Birthday Party',
+          start: '2018-11-13'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2018-11-28'
+        }
+      ],events: [
+        {
+          title: 'All Day Event',
+          start: '2018-11-01',
+        },
+        {
+          title: 'Long Event',
+          start: '2018-11-07'
+          
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-11-09'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-11-16'
+        },
+        {
+          title: 'Conference',
+          start: '2018-11-11'
+          
+        },
+        {
+          title: 'Birthday Party',
+          start: '2018-11-13'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2018-11-28'
+        }
+      ],
+    dayClick: function(date, allDay, jsEvent, view) {
+                  var eventsCount = 0;
+                 var date = date.format('YYYY-MM-DD');
+                  $('#calendar').fullCalendar('clientEvents', function(event) {
+                    var start = moment(event.start).format("YYYY-MM-DD");
+                    var end = moment(event.end).format("YYYY-MM-DD");
+                    if(date == start)
+                    {
+                      eventsCount++;
+                    }
+                  });
+                  if (eventsCount)
+                    return alert('Já existe um agendamento para esse dia!');
+        },
     timezone: 'America/Cuiaba',
+    eventRender: function(event, element)
+    { 
+        console.log(event);
+    },
     select: function (start, end, jsEvent, view) {
-      let abc = prompt('Enter Title');
-      let allDay = !start.hasTime && !end.hasTime;
-      let newEvent = new Object();
+      const abc = prompt('Enter Title');
+      const allDay = true;
+      const newEvent = new Object();
       newEvent.title = abc;
       newEvent.start = moment(start).format();
-      newEvent.allDay = false;
+      newEvent.end = moment(end).format();
+      newEvent.allDay = allDay;
       $('#calendar').fullCalendar('renderEvent', newEvent);
-      console.log(start);
-      console.log(end);
-      console.log(jsEvent);
-      console.log(view);
-      console.log(newEvent);
     }
   })
   $('.datepicker').datepicker({
