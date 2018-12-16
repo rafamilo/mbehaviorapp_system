@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+use Cake\Event\Event;
 
 use App\Controller\AppController;
 
@@ -16,6 +17,32 @@ class UsersController extends AppController
         parent::initialize();
         $this->loadComponent('Error');
         $this->loadComponent('PatchTimeStamp');
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Permitir aos usuários se registrarem e efetuar logout.
+        // Você não deve adicionar a ação de "login" a lista de permissões.
+        // Isto pode causar problemas com o funcionamento normal do AuthComponent.
+        $this->Auth->allow(['add', 'logout']);
+    }
+
+    public function login()
+    {
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error(__('Usuário ou senha ínvalido, tente novamente'));
+        }
+    }
+
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
     }
 
     public function index()
@@ -45,8 +72,7 @@ class UsersController extends AppController
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
 
-            $this->request->data = $this->PatchTimeEntity($this->Users, $this->request->data, $user);
-            $user = $this->Users->patchEntity($user, $this->request->data);
+            $user = $this->PatchTimeStamp->PatchTimeEntity($this->Users, $this->request->data, $user, false);
             
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('O user foi salvo com sucesso!'));
@@ -67,8 +93,7 @@ class UsersController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
 
-            $this->request->data = $this->PatchTimeEntity($this->Users, $this->request->data, $user);
-            $user = $this->Users->patchEntity($user, $this->request->data);
+            $user = $this->PatchTimeStamp->PatchTimeEntity($this->Users, $this->request->data, $user, false);
             
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('O user foi salvo com sucesso.'));
@@ -87,8 +112,7 @@ class UsersController extends AppController
         $user = $this->Users->get($id);
                 
         $this->request->data['status'] = 0;
-        $this->request->data = $this->PatchTimeEntity($this->Users, $this->request->data, $user);
-        $user = $this->Users->patchEntity($user, $this->request->data);
+        $user = $this->PatchTimeStamp->PatchTimeEntity($this->Users, $this->request->data, $user, true);
 
         if ($this->Users->save($user)) {
             $this->Flash->success(__('O user foi deletado com sucesso.'));

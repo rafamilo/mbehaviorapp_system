@@ -13,7 +13,7 @@
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
 namespace App\Controller;
-
+use Cake\Event\Event;
 use Cake\Controller\Controller;
 
 /**
@@ -66,10 +66,45 @@ class AppController extends Controller
         ]);
         $this->loadComponent('Flash');
 
+        $this->loadComponent('Auth', [
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'authError' => 'Did you really think you are allowed to see that?',
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'email']
+                ]
+            ],
+            'storage' => 'Session'
+        ]);
+
         /*
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
-        //$this->loadComponent('Security');
+        $this->loadComponent('Security');
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow(['index', 'view', 'display']);
+    }
+
+    public function beforeRender(Event $event)
+    {
+        $this->set('Auth', $this->Auth);
+    }
+
+    public function isAuthorized($user)
+    {
+        // Admin pode acessar todas as actions
+        if (isset($user['id']) && $user['id'] == 1) {
+            return true;
+        }
+
+        // Bloqueia acesso por padrão
+        return false;
     }
 }

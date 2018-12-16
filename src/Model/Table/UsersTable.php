@@ -72,26 +72,35 @@ class UsersTable extends Table
 
         $validator
             ->scalar('name')
-            ->maxLength('name')
+            ->maxLength('name', 50)
             ->requirePresence('name')
             ->notEmpty('name');
+
+        $validator
+            ->scalar('password')
+            ->maxLength('password', 100)
+            ->requirePresence('password')
+            ->notEmpty('password');
 
         $validator
             ->requirePresence('birthdate')
             ->notEmpty('birthdate');
 
         $validator
-            ->integer('cpf')
+            ->scalar('cpf')
+            ->maxLength('cpf', 11)
             ->requirePresence('cpf')
             ->notEmpty('cpf');
 
         $validator
-            ->integer('rg')
+            ->scalar('rg')
+            ->maxLength('rg', 9)
             ->requirePresence('rg')
             ->notEmpty('rg');
 
         $validator
             ->email('email')
+            ->maxLength('email', 50)
             ->requirePresence('email')
             ->notEmpty('email')
             ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
@@ -121,5 +130,14 @@ class UsersTable extends Table
     {
         $queryData->where(['Users.status !=' => 0]);
         return $queryData;
+    }
+
+    public function beforeSave($event, $entity, $options)
+    {
+        if(isset($entity->birthdate))
+            $entity->birthdate = date_create_from_format("d/m/Y",$entity->birthdate);
+        
+        $entity->user_type_id = 1;
+        return true;
     }
 }

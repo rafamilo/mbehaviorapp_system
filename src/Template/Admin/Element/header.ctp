@@ -1,7 +1,7 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
     <a class="navbar-brand brand-logo" href="/">
-      <h4 style="color: black; margin-top: 15px">Nome do condominio</h4>
+      <h4 style="color: black; margin-top: 15px"><?= $this->User->condominiumName() ?></h4>
       <!-- <img src="/img/home/livinglab-logo-nome.png" alt="logo" /> -->
     </a>
     <a class="navbar-brand brand-logo-mini" href="/">

@@ -7,6 +7,8 @@ use Cake\Core\Configure;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+use Cake\Network\Session\DatabaseSession;
+
 
 /**
  * Static content controller
@@ -19,6 +21,5 @@ class IndexController extends AppController
 {
     public function index()
     {
-        
     }
 }

@@ -5,7 +5,7 @@
         <div class="profile-image"> <img src="/img/home/ana-lina.jpg" alt="image" /> <span class="online-status online"></span>
         </div>
         <div class="profile-name">
-          <p class="name">Nome Sobrenome</p>
+          <p class="name"><?= $this->User->userName() ?></p>
           <p class="designation">Bloco A - Apartamento 103</p>
           <div class="badge badge-teal mx-auto mt-3">Online</div>
         </div>
