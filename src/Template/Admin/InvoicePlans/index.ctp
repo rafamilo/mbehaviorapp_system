@@ -24,7 +24,7 @@
                                                         <?=$this->Form->input('name', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
-                                                        <?=$this->Form->input('entry_type_id', ['data'=>'select','controller'=>'entryTypes','action'=>'fill','data-value'=>$invoicePlans->entry_type_id, 'class'=>'form-control']); ?>
+                                                        <?=$this->Form->input('entry_type_id', ['data'=>'select','controller'=>'entryTypes','action'=>'fill', 'class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
                                                         <?=$this->Form->input('created_by', ['class'=>'form-control']); ?>

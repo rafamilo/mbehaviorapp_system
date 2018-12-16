@@ -34,13 +34,24 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#mine-appartments" aria-expanded="false" aria-controls="mine-appartments">
-        <img class="menu-icon" src="/img/menu_icons/01.png" alt="menu icon"> <span class="menu-title">Meus Apartamentos</span><i
+      <a class="nav-link" data-toggle="collapse" href="#entry-types" aria-expanded="false" aria-controls="entry-types">
+        <img class="menu-icon" src="/img/menu_icons/01.png" alt="menu icon"> <span class="menu-title">Tipos de entrada</span><i
           class="menu-arrow"></i></a>
-      <div class="collapse" id="mine-appartments">
+      <div class="collapse" id="entry-types">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="">Listar meus apartamentos</a></li>
-          <li class="nav-item"> <a class="nav-link" href="">Adicionar apartamento</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/tipo-entrada">Listar tipos de entrada</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/tipo-entrada/add">Adicionar tipo de entrada</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#invoice-plans" aria-expanded="false" aria-controls="invoice-plans">
+        <img class="menu-icon" src="/img/menu_icons/01.png" alt="menu icon"> <span class="menu-title">Plano de contas</span><i
+          class="menu-arrow"></i></a>
+      <div class="collapse" id="invoice-plans">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="/plano-contas">Listar plano de contas</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/plano-contas/add">Adicionar plano</a></li>
         </ul>
       </div>
     </li>

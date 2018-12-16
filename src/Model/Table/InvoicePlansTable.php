@@ -64,7 +64,7 @@ class InvoicePlansTable extends Table
 
         $validator
             ->scalar('name')
-            ->maxLength('name')
+            ->maxLength('name', 50)
             ->requirePresence('name')
             ->notEmpty('name');
 
