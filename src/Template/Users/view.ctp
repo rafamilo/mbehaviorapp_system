@@ -25,8 +25,20 @@
                                 <td><?= h($user->name) ?></td>
                             </tr>
                             <tr>
+                                <th><?= __('Password') ?></th>
+                                <td><?= h($user->password) ?></td>
+                            </tr>
+                            <tr>
                                                                 <th><?= __('User Type') ?></th>
                                                                 <td><?= $user->has('user_type') ? $this->Html->link($user->user_type->name, ['controller' => 'UserTypes', 'action' => 'view', $user->user_type->id]) : '' ?></td>
+                            </tr>
+                            <tr>
+                                <th><?= __('Cpf') ?></th>
+                                <td><?= h($user->cpf) ?></td>
+                            </tr>
+                            <tr>
+                                <th><?= __('Rg') ?></th>
+                                <td><?= h($user->rg) ?></td>
                             </tr>
                             <tr>
                                 <th><?= __('Email') ?></th>
@@ -37,16 +49,16 @@
                                 <td><?= h($user->status) ?></td>
                             </tr>
                             <tr>
+                                <th><?= __('Username') ?></th>
+                                <td><?= h($user->username) ?></td>
+                            </tr>
+                            <tr>
+                                <th><?= __('Photo') ?></th>
+                                <td><?= h($user->photo) ?></td>
+                            </tr>
+                            <tr>
                                 <th><?= __('Id') ?></th>
                                 <td><?= $this->Number->format($user->id) ?></td>
-                            </tr>
-                            <tr>
-                                <th><?= __('Cpf') ?></th>
-                                <td><?= $this->Number->format($user->cpf) ?></td>
-                            </tr>
-                            <tr>
-                                <th><?= __('Rg') ?></th>
-                                <td><?= $this->Number->format($user->rg) ?></td>
                             </tr>
                             <tr>
                                 <th><?= __('Answerable') ?></th>
@@ -59,6 +71,14 @@
                             <tr>
                                 <th><?= __('Updated By') ?></th>
                                 <td><?= $this->Number->format($user->updated_by) ?></td>
+                            </tr>
+                            <tr>
+                                <th><?= __('Condominium Id') ?></th>
+                                <td><?= $this->Number->format($user->condominium_id) ?></td>
+                            </tr>
+                            <tr>
+                                <th><?= __('Company Id') ?></th>
+                                <td><?= $this->Number->format($user->company_id) ?></td>
                             </tr>
                             <tr>
                                                                 <th><?= __('Birthdate') ?></th>

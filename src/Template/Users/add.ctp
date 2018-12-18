@@ -7,8 +7,8 @@
                         Users
                     </h2>
                     <strong>
-                        <?= __('Cadastrar User') ?>
-                    </strong>
+                                                <?= __('Cadastrar User') ?>
+                                            </strong>
                 </div>
             </div>
         </div>
@@ -20,42 +20,55 @@
                 <div id="users" class="form card-body">
                     <?= $this->Form->create($user) ?>
                     <div class="col-12 no-padding row">
-                        <div class='col-6'>
-                            <?=$this->Form->input('name', ['class'=>'form-control']); ?>
+                                                    <div class='col-6'>
+                                                        <?=$this->Form->input('name', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('password', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('user_type_id', ['data'=>'select','controller'=>'userTypes','action'=>'fill', 'class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                            <?php                                         echo $this->Form->input('birthdate', ['type' => 'text', 'class' => 'datepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
+                                         ?>
                         </div>
-                        <div class='col-6'>
-                            <?=$this->Form->input('password', ['class'=>'form-control', 'type' => 'password']); ?>
-                        </div>
-                        <div class='col-6'>
-                            <?=$this->Form->input('user_type_id', ['data'=>'select','controller'=>'userTypes','action'=>'fill', 'class'=>'form-control']); ?>
-                        </div>
-                        <div class='col-6'>
-                            <?php echo $this->Form->input('birthdate', ['type' => 'text', 'class' => 'datetimepicker form-control', 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);?>
-                        </div>
-                        <div class='col-6'>
-                            <?=$this->Form->input('cpf', ['class'=>'form-control']); ?>
-                        </div>
-                        <div class='col-6'>
-                            <?=$this->Form->input('rg', ['class'=>'form-control']); ?>
-                        </div>
-                        <div class='col-6'>
-                            <?=$this->Form->input('email', ['class'=>'form-control']); ?>
-                        </div>
-                        <div class='col-6'>
-                            <?=$this->Form->input('answerable', ['class'=>'form-control']); ?>
-                        </div>
-                        <div class='col-6'>
-                            <?=$this->Form->input('created_by', ['class'=>'form-control']); ?>
-                        </div>
-                        <div class='col-6'>
-                            <?=$this->Form->input('updated_by', ['class'=>'form-control']); ?>
-                        </div>
-                        <div class='col-6'>
-                            <?=$this->Form->input('status', ['class'=>'form-control']); ?>
-                        </div>
-                        <div class="col-12 no-padding text-right mt-20">
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('cpf', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('rg', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('email', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('answerable', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('created_by', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('updated_by', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('status', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('condominium_id', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('username', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('company_id', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('photo', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class="col-12 no-padding text-right mt-20">
                             <?= $this->Form->button(__('Salvar'),['type'=>'submit', 'class'=>'btn btn-primary mr-2']) ?>
-                            <?= $this->Form->button(__('Cancelar'), ['class'=>'btn btn-light', 'onclick'=>'verifyCancel(event)'])?>
+                            <?= $this->Form->button(__('Cancelar'), ['class'=>'btn btn-light', 'onclick'=>'verifyCancel(event)', 'type' => 'button'])?>
                         </div>
                         <div class="clearfix"></div>
                     </div>

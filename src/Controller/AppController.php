@@ -68,18 +68,26 @@ class AppController extends Controller
 
         $this->loadComponent('Auth', [
             'loginAction' => [
+                'prefix' => NULL,
                 'controller' => 'Users',
                 'action' => 'login'
             ],
+            'logoutRedirect' => [
+            'prefix' => NULL,
+            'controller' => 'Users',
+            'action' => 'login'
+            ], 
             'authError' => 'Did you really think you are allowed to see that?',
             'authenticate' => [
                 'Form' => [
-                    'fields' => ['username' => 'email']
+                    'fields' => [
+                        'username' => 'username',
+                        'password' => 'password']
                 ]
             ],
             'storage' => 'Session'
         ]);
-
+        $this->Auth->allow();
         /*
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -89,6 +97,9 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event)
     {
+        if(!$this->Auth->user() && $this->request->here != '/users/login')
+            $this->redirect($_SERVER[ 'REQUEST_URI' ]);
+        
         $this->Auth->allow(['index', 'view', 'display']);
     }
 

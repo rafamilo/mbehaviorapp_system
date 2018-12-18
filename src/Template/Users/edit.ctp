@@ -24,10 +24,13 @@
                                                         <?=$this->Form->input('name', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
+                                                        <?=$this->Form->input('password', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
                                                         <?=$this->Form->input('user_type_id', ['data'=>'select','controller'=>'userTypes','action'=>'fill','data-value'=>$user->user_type_id, 'class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
-                            <?php                                         echo $this->Form->input('birthdate', ['type' => 'text', 'class' => 'datetimepicker form-control','value'=>$this->Time->format($user->birthdate,'dd/MM/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
+                            <?php                                         echo $this->Form->input('birthdate', ['type' => 'text', 'class' => 'datepicker form-control','value'=>date_format($user->birthdate,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
                                                  ?>
                         </div>
                                                 <div class='col-6'>
@@ -51,9 +54,21 @@
                                                 <div class='col-6'>
                                                         <?=$this->Form->input('status', ['class'=>'form-control']); ?>
                                                     </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('condominium_id', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('username', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('company_id', ['class'=>'form-control']); ?>
+                                                    </div>
+                                                <div class='col-6'>
+                                                        <?=$this->Form->input('photo', ['class'=>'form-control']); ?>
+                                                    </div>
                                                 <div class="col-12 no-padding text-right mt-20">
                             <?= $this->Form->button(__('Salvar'),['type'=>'submit', 'class'=>'btn btn-primary mr-2']) ?>
-                            <?= $this->Form->button(__('Cancelar'), ['class'=>'btn btn-light', 'onclick'=>'verifyCancel(event)'])?>
+                            <?= $this->Form->button(__('Cancelar'), ['class'=>'btn btn-light', 'onclick'=>'verifyCancel(event)', 'type' => 'button'])?>
                         </div>
                         <div class="clearfix"></div>
                     </div>
