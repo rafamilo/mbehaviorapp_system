@@ -77,6 +77,12 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/tipo-entrada/view/*', ['prefix' => 'Admin', 'controller' => 'EntryTypes', 'action' => 'view']);
     $routes->connect('/tipo-entrada/edit/*', ['prefix' => 'Admin', 'controller' => 'EntryTypes', 'action' => 'edit']);
     $routes->connect('/tipo-entrada/delete/*', ['prefix' => 'Admin', 'controller' => 'EntryTypes', 'action' => 'delete']);
+    /** User Invoices */
+    $routes->connect('/morador-contas', ['prefix' => 'Admin', 'controller' => 'UserInvoices', 'action' => 'index']);
+    $routes->connect('/morador-contas/add', ['prefix' => 'Admin', 'controller' => 'UserInvoices', 'action' => 'add']);
+    $routes->connect('/morador-contas/view/*', ['prefix' => 'Admin', 'controller' => 'UserInvoices', 'action' => 'view']);
+    $routes->connect('/morador-contas/edit/*', ['prefix' => 'Admin', 'controller' => 'UserInvoices', 'action' => 'edit']);
+    $routes->connect('/morador-contas/index/*', ['prefix' => 'Admin', 'controller' => 'UserInvoices', 'action' => 'delete']);
     // $routes->connect('/usuarios', ['prefix' => 'Admin', 'controller' => 'Users', 'action' => 'index']);
     // $routes->connect('/telefones', ['prefix' => 'Admin', 'controller' => 'UserPhones', 'action' => 'index']);
     // $routes->connect('/salao', ['prefix' => 'Admin', 'controller' => 'PartyHallSchedules', 'action' => 'index']);

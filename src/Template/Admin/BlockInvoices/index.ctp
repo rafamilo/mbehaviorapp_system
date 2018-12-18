@@ -30,17 +30,14 @@
                                                         <?=$this->Form->input('value',['prepend' => [$this->Form->button("<i class='fa fa-usd no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])], 'type' => 'text', 'mask' => 'money', 'class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
-                            <?php                                                 echo $this->Form->input('issue_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($blockInvoices->issue_date,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
-                                                         ?>
-                        </div>
+                                                        <?=$this->Form->input('issue_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>date_format($blockInvoices->issue_date,'d/m/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                                                    </div>
                                                 <div class='col-6'>
-                            <?php                                                 echo $this->Form->input('expiration_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($blockInvoices->expiration_date,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
-                                                         ?>
-                        </div>
+                                                        <?=$this->Form->input('expiration_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>date_format($blockInvoices->expiration_date,'d/m/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                                                    </div>
                                                 <div class='col-6'>
-                            <?php                                                 echo $this->Form->input('reference_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($blockInvoices->reference_date,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
-                                                         ?>
-                        </div>
+                                                        <?=$this->Form->input('reference_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>date_format($blockInvoices->reference_date,'d/m/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                                                    </div>
                                                 <div class='col-6'>
                                                         <?=$this->Form->input('payment_status', ['class'=>'form-control']); ?>
                                                     </div>
@@ -112,13 +109,13 @@
                                         <?= $this->Paginator->sort('created',['label'=>'Dt. Criação']) ?>
                                     </th>
                                                                         <th>
-                                        <?= $this->Paginator->sort('updated') ?>
+                                        <?= $this->Paginator->sort('updated',['label'=>'Dt. Atualizacao']) ?>
                                     </th>
                                                                         <th>
-                                        <?= $this->Paginator->sort('created_by') ?>
+                                        <?= $this->Paginator->sort('created_by',['label'=>'Cadastrado por']) ?>
                                     </th>
                                                                         <th>
-                                        <?= $this->Paginator->sort('updated_by') ?>
+                                        <?= $this->Paginator->sort('updated_by',['label'=>'Atualizador por']) ?>
                                     </th>
                                                                         <th>
                                         <?= $this->Paginator->sort('status') ?>
@@ -132,7 +129,7 @@
                                 <?php foreach ($blockInvoices as $blockInvoice): ?>
                                 <tr>
                                                                         <td>
-                                        <?= $this->Number->format($blockInvoice->id) ?>
+                                        <?= h($blockInvoice->id) ?>
                                     </td>
                                                                         <td>
                                         <?= $blockInvoice->has('block') ? $this->Html->link($blockInvoice->block->name, ['controller' => 'Blocks', 'action' => 'view', $blockInvoice->block->id]) : '' ?>
@@ -141,7 +138,7 @@
                                         <?= $blockInvoice->has('invoice_plan') ? $this->Html->link($blockInvoice->invoice_plan->name, ['controller' => 'InvoicePlans', 'action' => 'view', $blockInvoice->invoice_plan->id]) : '' ?>
                                     </td>
                                                                         <td>
-                                        <?= $this->Number->format($blockInvoice->value) ?>
+                                        <?= h($blockInvoice->value) ?>
                                     </td>
                                                                         <td>
                                         <?= h($blockInvoice->issue_date) ?>
@@ -156,16 +153,16 @@
                                         <?= h($blockInvoice->payment_status) ?>
                                     </td>
                                                                         <td>
-                                        <?= h($blockInvoice->created) ?>
+                                        <?= date_format($blockInvoice->created, 'd/m/Y H:m') ?>
                                     </td>
                                                                         <td>
-                                        <?= h($blockInvoice->updated) ?>
+                                        <?= date_format($blockInvoice->updated, 'd/m/Y H:m') ?>
                                     </td>
                                                                         <td>
-                                        <?= $this->Number->format($blockInvoice->created_by) ?>
+                                        <?= $blockInvoice->virtualCreatedBy ?>
                                     </td>
                                                                         <td>
-                                        <?= $this->Number->format($blockInvoice->updated_by) ?>
+                                        <?= $blockInvoice->virtualUpdatedBy ?>
                                     </td>
                                                                         <td>
                                         <?= h($blockInvoice->status) ?>

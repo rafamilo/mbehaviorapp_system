@@ -30,17 +30,14 @@
                                                         <?=$this->Form->input('value',['prepend' => [$this->Form->button("<i class='fa fa-usd no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])], 'type' => 'text', 'mask' => 'money', 'class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
-                            <?php                                                 echo $this->Form->input('issue_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($userInvoices->issue_date,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
-                                                         ?>
-                        </div>
+                                                        <?=$this->Form->input('issue_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>date_format($userInvoices->issue_date,'d/m/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                                                    </div>
                                                 <div class='col-6'>
-                            <?php                                                 echo $this->Form->input('expiration_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($userInvoices->expiration_date,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
-                                                         ?>
-                        </div>
+                                                        <?=$this->Form->input('expiration_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>date_format($userInvoices->expiration_date,'d/m/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                                                    </div>
                                                 <div class='col-6'>
-                            <?php                                                 echo $this->Form->input('reference_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>$this->Time->format($userInvoices->reference_date,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
-                                                         ?>
-                        </div>
+                                                        <?=$this->Form->input('reference_date', ['type' => 'text', 'class' => 'datepicker form-control','value'=>date_format($userInvoices->reference_date,'d/m/Y'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]); ?>
+                                                    </div>
                                                 <div class='col-6'>
                                                         <?=$this->Form->input('payment_status', ['class'=>'form-control']); ?>
                                                     </div>
@@ -88,7 +85,7 @@
                                         <?= $this->Paginator->sort('id') ?>
                                     </th>
                                                                         <th>
-                                        <?= $this->Paginator->sort('user_id',['label'=>'Quem Cadastrou']) ?>
+                                        <?= $this->Paginator->sort('user_id') ?>
                                     </th>
                                                                         <th>
                                         <?= $this->Paginator->sort('apartment_id') ?>
@@ -115,13 +112,13 @@
                                         <?= $this->Paginator->sort('created',['label'=>'Dt. Criação']) ?>
                                     </th>
                                                                         <th>
-                                        <?= $this->Paginator->sort('updated') ?>
+                                        <?= $this->Paginator->sort('updated',['label'=>'Dt. Atualizacao']) ?>
                                     </th>
                                                                         <th>
-                                        <?= $this->Paginator->sort('created_by') ?>
+                                        <?= $this->Paginator->sort('created_by',['label'=>'Cadastrado por']) ?>
                                     </th>
                                                                         <th>
-                                        <?= $this->Paginator->sort('updated_by') ?>
+                                        <?= $this->Paginator->sort('updated_by',['label'=>'Atualizador por']) ?>
                                     </th>
                                                                         <th>
                                         <?= $this->Paginator->sort('status') ?>
@@ -135,7 +132,7 @@
                                 <?php foreach ($userInvoices as $userInvoice): ?>
                                 <tr>
                                                                         <td>
-                                        <?= $this->Number->format($userInvoice->id) ?>
+                                        <?= h($userInvoice->id) ?>
                                     </td>
                                                                         <td>
                                         <?= $userInvoice->has('user') ? $this->Html->link($userInvoice->user->name, ['controller' => 'Users', 'action' => 'view', $userInvoice->user->id]) : '' ?>
@@ -147,7 +144,7 @@
                                         <?= $userInvoice->has('invoice_plan') ? $this->Html->link($userInvoice->invoice_plan->name, ['controller' => 'InvoicePlans', 'action' => 'view', $userInvoice->invoice_plan->id]) : '' ?>
                                     </td>
                                                                         <td>
-                                        <?= $this->Number->format($userInvoice->value) ?>
+                                        <?= h($userInvoice->value) ?>
                                     </td>
                                                                         <td>
                                         <?= h($userInvoice->issue_date) ?>
@@ -162,16 +159,16 @@
                                         <?= h($userInvoice->payment_status) ?>
                                     </td>
                                                                         <td>
-                                        <?= h($userInvoice->created) ?>
+                                        <?= date_format($userInvoice->created, 'd/m/Y H:m') ?>
                                     </td>
                                                                         <td>
-                                        <?= h($userInvoice->updated) ?>
+                                        <?= date_format($userInvoice->updated, 'd/m/Y H:m') ?>
                                     </td>
                                                                         <td>
-                                        <?= $this->Number->format($userInvoice->created_by) ?>
+                                        <?= $userInvoice->virtualCreatedBy ?>
                                     </td>
                                                                         <td>
-                                        <?= $this->Number->format($userInvoice->updated_by) ?>
+                                        <?= $userInvoice->virtualUpdatedBy ?>
                                     </td>
                                                                         <td>
                                         <?= h($userInvoice->status) ?>
