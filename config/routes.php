@@ -89,6 +89,18 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/bloco-contas/view/*', ['prefix' => 'Admin', 'controller' => 'BlockInvoices', 'action' => 'view']);
     $routes->connect('/bloco-contas/edit/*', ['prefix' => 'Admin', 'controller' => 'BlockInvoices', 'action' => 'edit']);
     $routes->connect('/bloco-contas/index/*', ['prefix' => 'Admin', 'controller' => 'BlockInvoices', 'action' => 'delete']);
+    /** Bills To Pay */
+    $routes->connect('/contas-pagar', ['prefix' => 'Admin', 'controller' => 'BillsToPay', 'action' => 'index']);
+    $routes->connect('/contas-pagar/add', ['prefix' => 'Admin', 'controller' => 'BillsToPay', 'action' => 'add']);
+    $routes->connect('/contas-pagar/view/*', ['prefix' => 'Admin', 'controller' => 'BillsToPay', 'action' => 'view']);
+    $routes->connect('/contas-pagar/edit/*', ['prefix' => 'Admin', 'controller' => 'BillsToPay', 'action' => 'edit']);
+    $routes->connect('/contas-pagar/index/*', ['prefix' => 'Admin', 'controller' => 'BillsToPay', 'action' => 'delete']);
+    /** Bills To Receive */
+    $routes->connect('/contas-receber', ['prefix' => 'Admin', 'controller' => 'BillsToReceive', 'action' => 'index']);
+    $routes->connect('/contas-receber/add', ['prefix' => 'Admin', 'controller' => 'BillsToReceive', 'action' => 'add']);
+    $routes->connect('/contas-receber/view/*', ['prefix' => 'Admin', 'controller' => 'BillsToReceive', 'action' => 'view']);
+    $routes->connect('/contas-receber/edit/*', ['prefix' => 'Admin', 'controller' => 'BillsToReceive', 'action' => 'edit']);
+    $routes->connect('/contas-receber/index/*', ['prefix' => 'Admin', 'controller' => 'BillsToReceive', 'action' => 'delete']);
     // $routes->connect('/usuarios', ['prefix' => 'Admin', 'controller' => 'Users', 'action' => 'index']);
     // $routes->connect('/telefones', ['prefix' => 'Admin', 'controller' => 'UserPhones', 'action' => 'index']);
     // $routes->connect('/salao', ['prefix' => 'Admin', 'controller' => 'PartyHallSchedules', 'action' => 'index']);

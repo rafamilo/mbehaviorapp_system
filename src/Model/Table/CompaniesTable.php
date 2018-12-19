@@ -54,10 +54,10 @@ class CompaniesTable extends Table
             ->allowEmpty('id');
 
         $validator
-            ->scalar('nome')
-            ->maxLength('nome')
-            ->requirePresence('nome')
-            ->notEmpty('nome');
+            ->scalar('name')
+            ->maxLength('name')
+            ->requirePresence('name')
+            ->notEmpty('name');
 
         $validator
             ->scalar('cnpj')

@@ -33,4 +33,9 @@ class UserHelper extends Helper
     {
         return TableRegistry::get('Condominiums')->get($this->thisUser()->condominium_id)->name;
     }
+
+    public function companyName()
+    {
+        return TableRegistry::get('Companies')->get($this->thisUser()->company_id)->name;
+    }
 }

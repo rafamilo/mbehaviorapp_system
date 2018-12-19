@@ -8,7 +8,7 @@ use Cake\ORM\TableRegistry;
  * Company Entity.
  *
  * @property int $id
- * @property string $nome
+ * @property string $name
  * @property string $cnpj
  * @property string $place
  * @property int $number
@@ -33,7 +33,7 @@ class Company extends Entity
      * @var array
      */
     protected $_accessible = [
-        'nome' => true,
+        'name' => true,
         'cnpj' => true,
         'place' => true,
         'number' => true,

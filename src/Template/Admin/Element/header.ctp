@@ -1,7 +1,7 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
     <a class="navbar-brand brand-logo" href="/">
-      <h4 style="color: black; margin-top: 15px"><?= $this->User->condominiumName() ?></h4>
+      <h4 style="color: black; margin-top: 15px"><?= $this->User->companyName() ?></h4>
       <!-- <img src="/meuappe/img/home/livinglab-logo-nome.png" alt="logo" /> -->
     </a>
     <a class="navbar-brand brand-logo-mini" href="/">
@@ -132,10 +132,16 @@
           </a>
         </div>
       </li>
-      <li class="nav-item d-none d-lg-block">
-        <a class="nav-link" href="#">
+      <li class="nav-item d-none d-lg-block dropdown">
+        <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
           <img class="img-xs rounded-circle" src="/meuappe/img/home/ana-lina.jpg" alt="">
         </a>
+        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+          <div class="dropdown-divider"></div>
+          <div class="dropdown-item">
+            <?= $this->Html->link('Sair', '/users/logout', ['escape' => false])?>
+          </div>
+        </div>
       </li>
     </ul>
     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">

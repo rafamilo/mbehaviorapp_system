@@ -12,13 +12,57 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
+      <a class="nav-link" data-toggle="collapse" href="#blocos" aria-expanded="false" aria-controls="blocos">
         <img class="menu-icon" src="/meuappe/img/menu_icons/01.png" alt="menu icon"> <span class="menu-title">Blocos</span><i
           class="menu-arrow"></i></a>
-      <div class="collapse" id="general-pages">
+      <div class="collapse" id="blocos">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="blocos">Listar blocos</a></li>
           <li class="nav-item"> <a class="nav-link" href="blocos/add">Adicionar bloco</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#contas-pagar" aria-expanded="false" aria-controls="contas-pagar">
+        <img class="menu-icon" src="/meuappe/img/menu_icons/01.png" alt="menu icon"> <span class="menu-title">Contas à pagar</span><i
+          class="menu-arrow"></i></a>
+      <div class="collapse" id="contas-pagar">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="contas-pagar">Listar contas à pagar</a></li>
+          <li class="nav-item"> <a class="nav-link" href="contas-pagar/add">Lançar conta</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#contas-receber" aria-expanded="false" aria-controls="contas-receber">
+        <img class="menu-icon" src="/meuappe/img/menu_icons/01.png" alt="menu icon"> <span class="menu-title">Contas à receber</span><i
+          class="menu-arrow"></i></a>
+      <div class="collapse" id="contas-receber">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="contas-receber">Listar contas à receber</a></li>
+          <li class="nav-item"> <a class="nav-link" href="contas-receber/add">Lançar conta</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#morador-contas" aria-expanded="false" aria-controls="morador-contas">
+        <img class="menu-icon" src="/meuappe/img/menu_icons/01.png" alt="menu icon"> <span class="menu-title">Contas dos moradores</span><i
+          class="menu-arrow"></i></a>
+      <div class="collapse" id="morador-contas">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="morador-contas">Listar contas dos moradores</a></li>
+          <li class="nav-item"> <a class="nav-link" href="morador-contas/add">Lançar conta</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#bloco-contas" aria-expanded="false" aria-controls="bloco-contas">
+        <img class="menu-icon" src="/meuappe/img/menu_icons/01.png" alt="menu icon"> <span class="menu-title">Contas dos blocos</span><i
+          class="menu-arrow"></i></a>
+      <div class="collapse" id="bloco-contas">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="bloco-contas">Listar contas dos blocos</a></li>
+          <li class="nav-item"> <a class="nav-link" href="bloco-contas/add">Lançar conta</a></li>
         </ul>
       </div>
     </li>
