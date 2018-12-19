@@ -17,7 +17,7 @@
                     <div class="fluid-container">
                         <div class="row ticket-card mt-3 pb-2 border-bottom">
                             <div class="col-1">
-                                <img class="img-sm rounded-circle" src="/img/faces/face1.jpg" alt="profile image">
+                                <img class="img-sm rounded-circle" src="/meuappe/img/faces/face1.jpg" alt="profile image">
                             </div>
                             <div class="ticket-details col-9">
                                 <div class="d-flex">
@@ -61,7 +61,7 @@
                         </div>
                         <div class="row ticket-card mt-3 pb-2 border-bottom">
                             <div class="col-1">
-                                <img class="img-sm rounded-circle" src="/img/faces/face2.jpg" alt="profile image">
+                                <img class="img-sm rounded-circle" src="/meuappe/img/faces/face2.jpg" alt="profile image">
                             </div>
                             <div class="ticket-details col-9">
                                 <div class="d-flex">
@@ -101,7 +101,7 @@
                         </div>
                         <div class="row ticket-card mt-3 pb-2 border-bottom">
                             <div class="col-1">
-                                <img class="img-sm rounded-circle" src="/img/faces/face3.jpg" alt="profile image">
+                                <img class="img-sm rounded-circle" src="/meuappe/img/faces/face3.jpg" alt="profile image">
                             </div>
                             <div class="ticket-details col-9">
                                 <div class="d-flex">
@@ -141,7 +141,7 @@
                         </div>
                         <div class="row ticket-card mt-3 pb-2 border-bottom">
                             <div class="col-1">
-                                <img class="img-sm rounded-circle" src="/img/faces/face4.jpg" alt="profile image">
+                                <img class="img-sm rounded-circle" src="/meuappe/img/faces/face4.jpg" alt="profile image">
                             </div>
                             <div class="ticket-details col-9">
                                 <div class="d-flex">
@@ -181,7 +181,7 @@
                         </div>
                         <div class="row ticket-card mt-3 pb-2">
                             <div class="col-1">
-                                <img class="img-sm rounded-circle" src="/img/faces/face5.jpg" alt="profile image">
+                                <img class="img-sm rounded-circle" src="/meuappe/img/faces/face5.jpg" alt="profile image">
                             </div>
                             <div class="ticket-details col-9">
                                 <div class="d-flex">
@@ -410,7 +410,7 @@
                                     <tr>
                                         <td>
                                             <div class="flag">
-                                                <img src="/img/flags/US.png">
+                                                <img src="/meuappe/img/flags/US.png">
                                             </div>
                                         </td>
                                         <td>USA</td>
@@ -424,7 +424,7 @@
                                     <tr>
                                         <td>
                                             <div class="flag">
-                                                <img src="/img/flags/DE.png">
+                                                <img src="/meuappe/img/flags/DE.png">
                                             </div>
                                         </td>
                                         <td>Germany</td>
@@ -438,7 +438,7 @@
                                     <tr>
                                         <td>
                                             <div class="flag">
-                                                <img src="/img/flags/AU.png">
+                                                <img src="/meuappe/img/flags/AU.png">
                                             </div>
                                         </td>
                                         <td>Australia</td>
@@ -452,7 +452,7 @@
                                     <tr>
                                         <td>
                                             <div class="flag">
-                                                <img src="/img/flags/GB.png">
+                                                <img src="/meuappe/img/flags/GB.png">
                                             </div>
                                         </td>
                                         <td>United Kingdom</td>
@@ -466,7 +466,7 @@
                                     <tr>
                                         <td>
                                             <div class="flag">
-                                                <img src="/img/flags/RO.png">
+                                                <img src="/meuappe/img/flags/RO.png">
                                             </div>
                                         </td>
                                         <td>Romania</td>
@@ -480,7 +480,7 @@
                                     <tr>
                                         <td>
                                             <div class="flag">
-                                                <img src="/img/flags/BR.png">
+                                                <img src="/meuappe/img/flags/BR.png">
                                             </div>
                                         </td>
                                         <td>Brasil</td>

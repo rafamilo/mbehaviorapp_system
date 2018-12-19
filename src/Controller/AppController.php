@@ -97,8 +97,8 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event)
     {
-        if(!$this->Auth->user() && $this->request->here != '/users/login')
-            $this->redirect($_SERVER[ 'REQUEST_URI' ]);
+        if(!$this->Auth->user() && str_replace('/meuappe', '', $this->request->here) != '/users/login')
+            $this->redirect(str_replace('/meuappe', '', $_SERVER[ 'REQUEST_URI' ]));
         
         $this->Auth->allow(['index', 'view', 'display']);
     }

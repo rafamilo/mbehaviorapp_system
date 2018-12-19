@@ -2,11 +2,11 @@
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
     <a class="navbar-brand brand-logo" href="/">
       <h4 style="color: black; margin-top: 15px"><?= $this->User->condominiumName() ?></h4>
-      <!-- <img src="/img/home/livinglab-logo-nome.png" alt="logo" /> -->
+      <!-- <img src="/meuappe/img/home/livinglab-logo-nome.png" alt="logo" /> -->
     </a>
     <a class="navbar-brand brand-logo-mini" href="/">
       <h4 style="color: black; margin-top: 15px">NdC</h4>
-      <!-- <img src="/img/home/livinglab-logo.png" alt="logo" /> -->
+      <!-- <img src="/meuappe/img/home/livinglab-logo.png" alt="logo" /> -->
     </a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -39,7 +39,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item preview-item">
             <div class="preview-thumbnail">
-                <img src="/img/faces/face4.jpg" alt="image" class="profile-pic">
+                <img src="/meuappe/img/faces/face4.jpg" alt="image" class="profile-pic">
             </div>
             <div class="preview-item-content">
               <strong class="preview-subject font-weight-medium">Rodrigo</strong>
@@ -52,7 +52,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item preview-item">
             <div class="preview-thumbnail">
-                <img src="/img/faces/face6.jpg" alt="image" class="profile-pic">
+                <img src="/meuappe/img/faces/face6.jpg" alt="image" class="profile-pic">
             </div>
             <div class="preview-item-content">
               <strong class="preview-subject font-weight-medium">Janaina</strong>
@@ -65,7 +65,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item preview-item">
             <div class="preview-thumbnail">
-                <img src="/img/faces/face6.jpg" alt="image" class="profile-pic">
+                <img src="/meuappe/img/faces/face6.jpg" alt="image" class="profile-pic">
             </div>
             <div class="preview-item-content">
               <strong class="preview-subject font-weight-medium">Janaina</strong>
@@ -91,7 +91,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item preview-item">
             <div class="preview-thumbnail">
-              <img src="/img/faces/face4.jpg" alt="image" class="profile-pic">
+              <img src="/meuappe/img/faces/face4.jpg" alt="image" class="profile-pic">
             </div>
             <div class="preview-item-content flex-grow">
               <h6 class="preview-subject ellipsis font-weight-medium">Fernando
@@ -105,7 +105,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item preview-item">
             <div class="preview-thumbnail">
-              <img src="/img/faces/face2.jpg" alt="image" class="profile-pic">
+              <img src="/meuappe/img/faces/face2.jpg" alt="image" class="profile-pic">
             </div>
             <div class="preview-item-content flex-grow">
               <h6 class="preview-subject ellipsis font-weight-medium">Camila
@@ -119,7 +119,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item preview-item">
             <div class="preview-thumbnail">
-              <img src="/img/faces/face3.jpg" alt="image" class="profile-pic">
+              <img src="/meuappe/img/faces/face3.jpg" alt="image" class="profile-pic">
             </div>
             <div class="preview-item-content flex-grow">
               <h6 class="preview-subject ellipsis font-weight-medium">Joaquim
@@ -134,7 +134,7 @@
       </li>
       <li class="nav-item d-none d-lg-block">
         <a class="nav-link" href="#">
-          <img class="img-xs rounded-circle" src="/img/home/ana-lina.jpg" alt="">
+          <img class="img-xs rounded-circle" src="/meuappe/img/home/ana-lina.jpg" alt="">
         </a>
       </li>
     </ul>
