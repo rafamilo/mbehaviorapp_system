@@ -32,9 +32,13 @@ class UsersController extends AppController
     {
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
+
             if ($user) {
                 $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
+                if(!empty($this->request->getQuery('redirect'))) {
+                    return $this->redirect($this->request->getQuery('redirect'));
+                }
+                return $this->redirect('/');
             }
             $this->Flash->error(__('Usuário ou senha ínvalido, tente novamente'));
         }

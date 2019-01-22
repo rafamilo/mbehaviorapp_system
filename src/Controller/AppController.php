@@ -15,6 +15,8 @@
 namespace App\Controller;
 use Cake\Event\Event;
 use Cake\Controller\Controller;
+use Cake\Routing\RouteBuilder;
+use Cake\Routing\Router;
 
 /**
  * Application Controller
@@ -68,12 +70,12 @@ class AppController extends Controller
 
         $this->loadComponent('Auth', [
             'loginAction' => [
-                'prefix' => NULL,
+                $this->request->prefix => false,
                 'controller' => 'Users',
                 'action' => 'login'
             ],
             'logoutRedirect' => [
-            'prefix' => NULL,
+            $this->request->prefix => false,
             'controller' => 'Users',
             'action' => 'login'
             ], 
@@ -98,8 +100,10 @@ class AppController extends Controller
     public function beforeFilter(Event $event)
     {
         if(!$this->Auth->user() && str_replace('/meuappe', '', $this->request->here) != '/users/login')
-            $this->redirect(str_replace('/meuappe', '', $_SERVER[ 'REQUEST_URI' ]));
-        
+        {
+            $this->redirect(['prefix' => false, 'controller' => 'users', 'action' => 'login', '?' => ['redirect' => $this->request->here]]);
+        }
+     
         $this->Auth->allow(['index', 'view', 'display']);
     }
 

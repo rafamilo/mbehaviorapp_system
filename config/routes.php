@@ -136,8 +136,10 @@ Router::scope('/', function (RouteBuilder $routes) {
 
     Router::prefix('admin', function ($routes) {
         $routes->fallbacks(DashedRoute::class);
+        $routes->fallbacks('InflectedRoute');
     });
     
     $routes->setExtensions(['json', 'xml']);
     $routes->fallbacks(DashedRoute::class);
+    $routes->fallbacks('InflectedRoute');
 });
