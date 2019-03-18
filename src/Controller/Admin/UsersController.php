@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Controller\AppController;
 
@@ -16,27 +16,6 @@ class UsersController extends AppController
         parent::initialize();
         $this->loadComponent('Error');
         $this->loadComponent('PatchTimeStamp');
-    }
-
-    public function login()
-    {
-        if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-
-            if ($user) {
-                $this->Auth->setUser($user);
-                if(!empty($this->request->getQuery('redirect'))) {
-                    return $this->redirect($this->request->getQuery('redirect'));
-                }
-                return $this->redirect('/');
-            }
-            $this->Flash->error(__('Usuário ou senha ínvalido, tente novamente'));
-        }
-    }
-
-    public function logout()
-    {
-        return $this->redirect($this->Auth->logout());
     }
 
     public function index()

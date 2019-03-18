@@ -12,8 +12,8 @@ use Cake\ORM\TableRegistry;
  * @property string $name
  * @property int $user_type_id
  * @property \Cake\I18n\FrozenTime $birthdate
- * @property int $cpf
- * @property int $rg
+ * @property string $cpf
+ * @property string $rg
  * @property string $email
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $updated

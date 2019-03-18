@@ -19,8 +19,8 @@ class CreateAndInsertData extends AbstractMigration
             name VARCHAR(50) NOT NULL,
             user_type_id INT(11) NOT NULL, 
             birthdate datetime NOT NULL, 
-            cpf INT(11) NOT NULL, 
-            rg INT(9) NOT NULL,
+            cpf VARCHAR(11) NOT NULL, 
+            rg VARCHAR(9) NOT NULL,
             email varchar(50) NOT NULL UNIQUE,
             created datetime NOT NULL,
             updated datetime NOT NULL DEFAULT NOW(),
@@ -85,9 +85,7 @@ class CreateAndInsertData extends AbstractMigration
         VALUES (-13, "root", 1, NOW(), 00000000000, 000000000, "email@gmail.com", NOW(), -13, -13);
         
         INSERT INTO user_types (id, name, created, created_by, updated_by)
-        VALUES (1, "admin", NOW(), -13, -13), (2, "dweller", NOW(), -13, -13),
-        (3, "dweller_family", NOW(), -13, -13), (4, "owner", NOW(), -13, -13);
-        ');
+        VALUES (1, "admin", NOW(), -13, -13), (2, "dweller", NOW(), -13, -13)');
     }
 
     public function down()

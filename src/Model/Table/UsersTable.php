@@ -79,12 +79,14 @@ class UsersTable extends Table
             ->notEmpty('birthdate');
 
         $validator
-            ->integer('cpf')
+            ->scalar('cpf')
+            ->maxLength('cpf')
             ->requirePresence('cpf')
             ->notEmpty('cpf');
 
         $validator
-            ->integer('rg')
+            ->scalar('rg')
+            ->maxLength('rg')
             ->requirePresence('rg')
             ->notEmpty('rg');
 
