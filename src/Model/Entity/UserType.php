@@ -2,6 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\ORM\TableRegistry;
 
 /**
  * UserType Entity.
@@ -35,4 +36,13 @@ class UserType extends Entity
         'status' => true,
         'users' => true,
     ];
+    protected function _getVirtualCreatedBy()
+    {   
+        return TableRegistry::get('Users')->get($this->_properties['created_by'])->name;
+    }
+
+    protected function _getVirtualUpdatedBy()
+    {   
+        return TableRegistry::get('Users')->get($this->_properties['updated_by'])->name;
+    }
 }

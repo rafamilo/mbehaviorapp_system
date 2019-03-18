@@ -21,10 +21,10 @@
                     <?= $this->Form->create($user) ?>
                     <div class="col-12 no-padding row">
                                                     <div class='col-6'>
-                                                        <?=$this->Form->input('name', ['class'=>'form-control']); ?>
+                                                        <?=$this->Form->input('password', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
-                                                        <?=$this->Form->input('password', ['class'=>'form-control']); ?>
+                                                        <?=$this->Form->input('name', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
                                                         <?=$this->Form->input('user_type_id', ['data'=>'select','controller'=>'userTypes','action'=>'fill', 'class'=>'form-control']); ?>
@@ -43,9 +43,6 @@
                                                         <?=$this->Form->input('email', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
-                                                        <?=$this->Form->input('answerable', ['class'=>'form-control']); ?>
-                                                    </div>
-                                                <div class='col-6'>
                                                         <?=$this->Form->input('created_by', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
@@ -53,18 +50,6 @@
                                                     </div>
                                                 <div class='col-6'>
                                                         <?=$this->Form->input('status', ['class'=>'form-control']); ?>
-                                                    </div>
-                                                <div class='col-6'>
-                                                        <?=$this->Form->input('condominium_id', ['class'=>'form-control']); ?>
-                                                    </div>
-                                                <div class='col-6'>
-                                                        <?=$this->Form->input('username', ['class'=>'form-control']); ?>
-                                                    </div>
-                                                <div class='col-6'>
-                                                        <?=$this->Form->input('company_id', ['class'=>'form-control']); ?>
-                                                    </div>
-                                                <div class='col-6'>
-                                                        <?=$this->Form->input('photo', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class="col-12 no-padding text-right mt-20">
                             <?= $this->Form->button(__('Salvar'),['type'=>'submit', 'class'=>'btn btn-primary mr-2']) ?>

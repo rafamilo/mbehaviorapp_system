@@ -5,23 +5,21 @@ use Cake\ORM\Entity;
 use Cake\ORM\TableRegistry;
 
 /**
- * User Entity.
+ * UserApp Entity.
  *
  * @property int $id
- * @property string $password
  * @property string $name
- * @property int $user_type_id
- * @property \Cake\I18n\FrozenTime $birthdate
- * @property int $cpf
- * @property int $rg
- * @property string $email
+ * @property int $usage_time
+ * @property int $last_usage_time
+ * @property int $usage_in_this_session
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $updated
  * @property int $created_by
  * @property int $updated_by
  * @property int $status
+ * @property int $user_id
  */
-class User extends Entity
+class UserApp extends Entity
 {
 
     /**
@@ -34,30 +32,17 @@ class User extends Entity
      * @var array
      */
     protected $_accessible = [
-        'password' => true,
         'name' => true,
-        'user_type_id' => true,
-        'birthdate' => true,
-        'cpf' => true,
-        'rg' => true,
-        'email' => true,
+        'usage_time' => true,
+        'last_usage_time' => true,
+        'usage_in_this_session' => true,
         'created' => true,
         'updated' => true,
         'created_by' => true,
         'updated_by' => true,
         'status' => true,
-        'user_type' => true,
-        'user_apps' => true,
-        'user_statistics' => true,
-    ];
-
-    /**
-     * Fields that are excluded from JSON an array versions of the entity.
-     *
-     * @var array
-     */
-    protected $_hidden = [
-        'password'
+        'user_id' => true,
+        'user' => true,
     ];
     protected function _getVirtualCreatedBy()
     {   

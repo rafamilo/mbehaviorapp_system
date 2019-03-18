@@ -4,10 +4,10 @@
             <div class="card">
                 <div class="card-body">
                     <h2>
-                        Users
+                        User Apps
                     </h2>
                     <strong>
-                                                <?= __('Editar User') ?>
+                                                <?= __('Editar User App') ?>
                                             </strong>
                 </div>
             </div>
@@ -17,30 +17,20 @@
     <div class="row">
         <div class="col-12 grid-margin">
             <div class="card">
-                <div id="users" class="form card-body">
-                    <?= $this->Form->create($user) ?>
+                <div id="userApps" class="form card-body">
+                    <?= $this->Form->create($userApp) ?>
                     <div class="col-12 no-padding row">
                                                     <div class='col-6'>
-                                                        <?=$this->Form->input('password', ['class'=>'form-control']); ?>
-                                                    </div>
-                                                <div class='col-6'>
                                                         <?=$this->Form->input('name', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
-                                                        <?=$this->Form->input('user_type_id', ['data'=>'select','controller'=>'userTypes','action'=>'fill','data-value'=>$user->user_type_id, 'class'=>'form-control']); ?>
+                                                        <?=$this->Form->input('usage_time', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
-                            <?php                                         echo $this->Form->input('birthdate', ['type' => 'text', 'class' => 'datepicker form-control','value'=>date_format($user->birthdate,'d/m/Y H:m'), 'append' => [$this->Form->button("<i class='fa fa-calendar no-margin'></i>", ['type'=>'button', 'class'=>'background-append'])]]);
-                                                 ?>
-                        </div>
-                                                <div class='col-6'>
-                                                        <?=$this->Form->input('cpf', ['class'=>'form-control']); ?>
+                                                        <?=$this->Form->input('last_usage_time', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
-                                                        <?=$this->Form->input('rg', ['class'=>'form-control']); ?>
-                                                    </div>
-                                                <div class='col-6'>
-                                                        <?=$this->Form->input('email', ['class'=>'form-control']); ?>
+                                                        <?=$this->Form->input('usage_in_this_session', ['class'=>'form-control']); ?>
                                                     </div>
                                                 <div class='col-6'>
                                                         <?=$this->Form->input('created_by', ['class'=>'form-control']); ?>

@@ -1,7 +1,7 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\User;
+use App\Model\Entity\UserApp;
 use Cake\Event\Event;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
@@ -11,14 +11,12 @@ use Cake\Validation\Validator;
 use DateTime;
 
 /**
- * Users Model
+ * UserApps Model
  *
- * @property \Cake\ORM\Association\BelongsTo $UserTypes
- * @property \Cake\ORM\Association\HasMany $UserApps
- * @property \Cake\ORM\Association\HasMany $UserStatistics
+ * @property \Cake\ORM\Association\BelongsTo $Users
 
  */
-class UsersTable extends Table
+class UserAppsTable extends Table
 {
 
     /**
@@ -32,21 +30,15 @@ class UsersTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('users');
+        $this->setTable('user_apps');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('UserTypes', [
-            'foreignKey' => 'user_type_id',
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
             'joinType' => 'INNER'
-        ]);
-        $this->hasMany('UserApps', [
-            'foreignKey' => 'user_id'
-        ]);
-        $this->hasMany('UserStatistics', [
-            'foreignKey' => 'user_id'
         ]);
     }
 
@@ -63,36 +55,22 @@ class UsersTable extends Table
             ->allowEmpty('id');
 
         $validator
-            ->scalar('password')
-            ->maxLength('password')
-            ->requirePresence('password')
-            ->notEmpty('password');
-
-        $validator
             ->scalar('name')
             ->maxLength('name')
             ->requirePresence('name')
             ->notEmpty('name');
 
         $validator
-            ->requirePresence('birthdate')
-            ->notEmpty('birthdate');
+            ->requirePresence('usage_time')
+            ->notEmpty('usage_time');
 
         $validator
-            ->integer('cpf')
-            ->requirePresence('cpf')
-            ->notEmpty('cpf');
+            ->requirePresence('last_usage_time')
+            ->notEmpty('last_usage_time');
 
         $validator
-            ->integer('rg')
-            ->requirePresence('rg')
-            ->notEmpty('rg');
-
-        $validator
-            ->email('email')
-            ->requirePresence('email')
-            ->notEmpty('email')
-            ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+            ->requirePresence('usage_in_this_session')
+            ->notEmpty('usage_in_this_session');
 
         $validator
             ->integer('created_by')
@@ -113,7 +91,7 @@ class UsersTable extends Table
 
     public function beforeFind(Event $event, Query $queryData)
     {
-        $queryData->where(['Users.status !=' => 0]);
+        $queryData->where(['UserApps.status !=' => 0]);
         return $queryData;
     }
 }
