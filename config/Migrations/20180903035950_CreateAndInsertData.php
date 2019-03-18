@@ -38,6 +38,48 @@ class CreateAndInsertData extends AbstractMigration
             updated_by int(11) NOT NULL,
             status tinyint NOT NULL DEFAULT 1
         ); 
+
+        CREATE TABLE IF NOT EXISTS user_apps (
+            id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+            name VARCHAR(50) NOT NULL,
+            usage_time BIGINT NOT NULL,
+            last_usage_time BIGINT NOT NULL,
+            usage_in_this_session BIGINT NOT NULL,
+            created datetime NOT NULL,
+            updated datetime NOT NULL DEFAULT NOW(),
+            created_by int(11) NOT NULL,
+            updated_by int(11) NOT NULL,
+            status tinyint NOT NULL DEFAULT 1,
+            user_id INT(11) NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS user_statistics (
+            id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+            phone_brand VARCHAR(255) NOT NULL DEFAULT "",
+            phone_carrier VARCHAR(255) NOT NULL DEFAULT "",
+            phone_model VARCHAR(255) NOT NULL DEFAULT "",
+            phone_number VARCHAR(255) NOT NULL DEFAULT "",
+            phone_manufacturer VARCHAR(255) NOT NULL DEFAULT "",
+            system_name VARCHAR(255) NOT NULL DEFAULT "",
+            system_version VARCHAR(255) NOT NULL DEFAULT "",
+            timezone VARCHAR(255) NOT NULL DEFAULT "",
+            battery_level VARCHAR(255) NOT NULL DEFAULT "",
+            ip VARCHAR(255) NOT NULL DEFAULT "",
+            user_agent VARCHAR(255) NOT NULL DEFAULT "",
+            air_plane_mode_on VARCHAR(255) NOT NULL DEFAULT "",
+            is_emulator VARCHAR(255) NOT NULL DEFAULT "",
+            is_tablet VARCHAR(255) NOT NULL DEFAULT "",
+            is_landscape VARCHAR(255) NOT NULL DEFAULT "",
+            device_type VARCHAR(255) NOT NULL DEFAULT "",
+            connection_type VARCHAR(255) NOT NULL DEFAULT "",
+            connection_effective_type VARCHAR(255) NOT NULL DEFAULT "",
+            created datetime NOT NULL,
+            updated datetime NOT NULL DEFAULT NOW(),
+            created_by int(11) NOT NULL,
+            updated_by int(11) NOT NULL,
+            status tinyint NOT NULL DEFAULT 1,
+            user_id INT(11) NOT NULL
+        );
         
         INSERT INTO users (id, name, user_type_id, birthdate, cpf, rg, email, created, created_by, updated_by)
         VALUES (-13, "root", 1, NOW(), 00000000000, 000000000, "email@gmail.com", NOW(), -13, -13);
@@ -51,20 +93,8 @@ class CreateAndInsertData extends AbstractMigration
     public function down()
     {
         $this->execute('
-        DROP TABLE IF EXISTS blocks;
-        DROP TABLE IF EXISTS block_invoices;
-        DROP TABLE IF EXISTS invoice_plans;
-        DROP TABLE IF EXISTS entry_types;
-        DROP TABLE IF EXISTS apartments;
-        DROP TABLE IF EXISTS lodger_apartments;
-        DROP TABLE IF EXISTS lodger_apartment_invoices;
         DROP TABLE IF EXISTS users;
-        DROP TABLE IF EXISTS user_phones;
         DROP TABLE IF EXISTS user_types;
-        DROP TABLE IF EXISTS phone_types;
-        DROP TABLE IF EXISTS user_invoices;
-        DROP TABLE IF EXISTS party_hall_schedules;
-        DROP TABLE IF EXISTS announcements;
         ');
     }
 }
