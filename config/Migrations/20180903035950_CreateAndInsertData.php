@@ -95,6 +95,8 @@ class CreateAndInsertData extends AbstractMigration
         $this->execute('
         DROP TABLE IF EXISTS users;
         DROP TABLE IF EXISTS user_types;
+        DROP TABLE IF EXISTS user_apps;
+        DROP TABLE IF EXISTS user_statistics;
         ');
     }
 }
