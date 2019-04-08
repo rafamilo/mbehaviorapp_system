@@ -53,6 +53,10 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Index', 'action' => 'index']);
+    $routes->connect('/apiLogin', ['controller' => 'Users', 'action' => 'login']);
+    $routes->connect('/apiRegister', ['controller' => 'Users', 'action' => 'register']);
+    $routes->connect('/apiForgotPassword', ['controller' => 'Users', 'action' => 'forgot']);
+    $routes->connect('/adminLogin', ['prefix' => 'admin', 'controller' => 'Users', 'action' => 'login']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

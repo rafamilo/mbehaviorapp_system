@@ -3,7 +3,7 @@ namespace App\Controller\Component;
 use Cake\Controller\Component;
 use Cake\Http\Exception\BadRequestException; //400
 use Cake\Http\Exception\UnauthorizedException; //401
-use Cake\Http\Exception\ForbiddenException; //403
+use Cake\Http\Exception\ForbiddenException; //402
 use Cake\Http\Exception\InvalidCsrfTokenException; //403
 use Cake\Http\Exception\NotFoundException; //404
 use Cake\Http\Exception\MethodNotAllowedException; //405
@@ -19,6 +19,18 @@ class ErrorComponent extends Component
     public function emitError($code, $message = null)
     {
         switch ($code) {
+            case 400:                
+                throw new BadRequestException(__($message));
+                break;
+            case 401:                
+                throw new UnauthorizedException(__($message));
+                break;
+            case 402:                
+                throw new ForbiddenException(__($message));
+                break;
+            case 403:                
+                throw new InvalidCsrfTokenException(__($message));
+                break;
             case 404:                
                 throw new NotFoundException(__($message));
                 break;

@@ -18,78 +18,24 @@ class UsersController extends AppController
         $this->loadComponent('PatchTimeStamp');
     }
 
-    public function index()
+    public function login()
     {
-        $this->paginate = [
-            'contain' => ['UserTypes']
-        ];
-        $users = $this->paginate($this->Users);
-
-        $this->set(compact('users'));
-        $this->set('_serialize', ['users']);
-    }
-
-    public function view($id = null)
-    {
-        $user = $this->Users->get($id, [
-            'contain' => ['UserTypes', 'UserApps', 'UserStatistics']
-        ]);
-
-        $this->set('user');
-        $this->set('_serialize', ['user']);
-    }
-
-    public function add()
-    {
-        $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
 
-            $user = $this->PatchTimeStamp->PatchTimeEntity($this->Users, $this->request->data, $user, false);
-            
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('O user foi salvo com sucesso!'));
-                return $this->redirect(['action' => 'index']);
+            if ($user) {
+                $this->Auth->setUser($user);
             } else {
-                $this->Flash->error(__('O user não foi salvo. Por favor, tente novamente.'));
+                return $this->Error->emitError(400, 'Login ou senha incorretos!');
             }
         }
 
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }
-
-    public function edit($id = null)
+    
+    public function logout()
     {
-        $user = $this->Users->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-
-            $user = $this->PatchTimeStamp->PatchTimeEntity($this->Users, $this->request->data, $user, false);
-                        
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('O user foi salvo com sucesso.'));
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('O user não foi salvo. Por favor, tente novamente.'));
-            }
-        }
-
-        $this->set(compact('user'));
-        $this->set('_serialize', ['user']);
+        return $this->redirect($this->Auth->logout());
     }
-
-    public function delete($id = null)
-    {
-        $user = $this->Users->get($id);
-                
-        $user = $this->PatchTimeStamp->PatchTimeEntity($this->Users, $this->request->data, $user, true);
-
-        if ($this->Users->save($user)) {
-            $this->Flash->success(__('O user foi deletado com sucesso.'));
-        } else {
-            $this->Flash->error(__('Desculpe! O user não foi deletado! Tente novamente mais tarde.'));
-        }
-                
-        return $this->redirect(['action' => 'index']);
-    }}
+}

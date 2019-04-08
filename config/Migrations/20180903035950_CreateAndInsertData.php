@@ -17,7 +17,7 @@ class CreateAndInsertData extends AbstractMigration
             id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
             password VARCHAR(255) NOT NULL,
             name VARCHAR(50) NOT NULL,
-            user_type_id INT(11) NOT NULL, 
+            user_type_id INT(11) NOT NULL DEFAULT 0, 
             birthdate datetime NOT NULL, 
             cpf VARCHAR(11) NOT NULL, 
             rg VARCHAR(9) NOT NULL,

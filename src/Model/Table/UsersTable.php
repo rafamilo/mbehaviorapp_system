@@ -64,13 +64,11 @@ class UsersTable extends Table
 
         $validator
             ->scalar('password')
-            ->maxLength('password')
             ->requirePresence('password')
             ->notEmpty('password');
 
         $validator
             ->scalar('name')
-            ->maxLength('name')
             ->requirePresence('name')
             ->notEmpty('name');
 
@@ -80,13 +78,11 @@ class UsersTable extends Table
 
         $validator
             ->scalar('cpf')
-            ->maxLength('cpf')
             ->requirePresence('cpf')
             ->notEmpty('cpf');
 
         $validator
             ->scalar('rg')
-            ->maxLength('rg')
             ->requirePresence('rg')
             ->notEmpty('rg');
 

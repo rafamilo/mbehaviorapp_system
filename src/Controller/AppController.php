@@ -68,18 +68,17 @@ class AppController extends Controller
         ]);
         $this->loadComponent('Flash');
 
+        $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
-            'loginAction' => [
-                $this->request->prefix => false,
-                'controller' => 'Users',
-                'action' => 'login'
+            'loginRedirect' => [
+                'controller' => 'Articles',
+                'action' => 'index'
             ],
             'logoutRedirect' => [
-            $this->request->prefix => false,
-            'controller' => 'Users',
-            'action' => 'login'
-            ], 
-            'authError' => 'Did you really think you are allowed to see that?',
+                'controller' => 'Pages',
+                'action' => 'display',
+                'home'
+            ],
             'authenticate' => [
                 'Form' => [
                     'fields' => [
@@ -87,7 +86,6 @@ class AppController extends Controller
                         'password' => 'password']
                 ]
             ],
-            'storage' => 'Session'
         ]);
         $this->Auth->allow();
         /*
@@ -99,11 +97,6 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event)
     {
-        if(!$this->Auth->user() && str_replace('/meuappe', '', $this->request->here) != '/users/login')
-        {
-            $this->redirect(['prefix' => false, 'controller' => 'users', 'action' => 'login', '?' => ['redirect' => $this->request->here]]);
-        }
-     
         $this->Auth->allow(['index', 'view', 'display']);
     }
 

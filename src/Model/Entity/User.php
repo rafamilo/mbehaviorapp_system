@@ -3,6 +3,7 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 use Cake\ORM\TableRegistry;
+use Cake\Auth\DefaultPasswordHasher;
 
 /**
  * User Entity.
@@ -34,21 +35,8 @@ class User extends Entity
      * @var array
      */
     protected $_accessible = [
-        'password' => true,
-        'name' => true,
-        'user_type_id' => true,
-        'birthdate' => true,
-        'cpf' => true,
-        'rg' => true,
-        'email' => true,
-        'created' => true,
-        'updated' => true,
-        'created_by' => true,
-        'updated_by' => true,
-        'status' => true,
-        'user_type' => true,
-        'user_apps' => true,
-        'user_statistics' => true,
+        '*' => true,
+        'id' => false
     ];
 
     /**
@@ -67,5 +55,12 @@ class User extends Entity
     protected function _getVirtualUpdatedBy()
     {   
         return TableRegistry::get('Users')->get($this->_properties['updated_by'])->name;
+    }
+
+    protected function _setPassword($password)
+    {
+        if (strlen($password) > 0) {
+            return (new DefaultPasswordHasher)->hash($password);
+        }
     }
 }
