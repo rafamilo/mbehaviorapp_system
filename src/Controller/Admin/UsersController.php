@@ -18,7 +18,7 @@ class UsersController extends AppController
         $this->loadComponent('PatchTimeStamp');
     }
 
-    public function login()
+    public function superLoginAdmin()
     {
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();

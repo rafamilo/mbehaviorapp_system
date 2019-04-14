@@ -28,7 +28,7 @@ class UsersController extends AppController
         $this->Auth->allow(['register', 'logout']);
     }
 
-    public function login()
+    public function loginApiApp()
     {
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
@@ -44,7 +44,7 @@ class UsersController extends AppController
         $this->set('_serialize', ['user']);
     }
 
-    public function register()
+    public function registerApiApp()
     {
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
