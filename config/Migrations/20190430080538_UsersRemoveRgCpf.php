@@ -1,0 +1,24 @@
+<?php
+use Migrations\AbstractMigration;
+
+class UsersRemoveRgCpf extends AbstractMigration
+{
+    /**
+     * Change Method.
+     *
+     * More information on this method is available here:
+     * http://docs.phinx.org/en/latest/migrations.html#the-change-method
+     * @return void
+     */
+    public function up()
+    {
+        $this->execute('ALTER TABLE users DROP COLUMN rg');
+        $this->execute('ALTER TABLE users DROP COLUMN cpf');
+    }
+
+    public function down()
+    {
+        $this->execute('ALTER TABLE users DROP COLUMN cpf VARCHAR(11) NOT NULL');
+        $this->execute('ALTER TABLE users DROP COLUMN rg VARCHAR(9) NOT NULL');
+    }
+}

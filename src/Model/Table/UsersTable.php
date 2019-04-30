@@ -77,16 +77,6 @@ class UsersTable extends Table
             ->notEmpty('birthdate');
 
         $validator
-            ->scalar('cpf')
-            ->requirePresence('cpf')
-            ->notEmpty('cpf');
-
-        $validator
-            ->scalar('rg')
-            ->requirePresence('rg')
-            ->notEmpty('rg');
-
-        $validator
             ->email('email')
             ->requirePresence('email')
             ->notEmpty('email')
@@ -107,6 +97,14 @@ class UsersTable extends Table
             ->notEmpty('status');
 
         return $validator;
+    }
+
+    public function findByEmail($email)
+    {
+        if ($this->find()->where(['email' => $email])->first())
+            return true;
+        else
+            return false;
     }
 
     public function beforeFind(Event $event, Query $queryData)

@@ -22,6 +22,13 @@ class UsersController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
+        if (in_array($this->request->params['action'], ['registerApiApp'])) {
+            // for csrf
+            $this->eventManager()->off($this->Csrf);
+        
+            // for security component
+            $this->Security->config('unlockedActions', ['registerApiApp']);
+        }
         // Permitir aos usuários se registrarem e efetuar logout.
         // Você não deve adicionar a ação de "login" a lista de permissões.
         // Isto pode causar problemas com o funcionamento normal do AuthComponent.
@@ -47,12 +54,23 @@ class UsersController extends AppController
     public function registerApiApp()
     {
         $user = $this->Users->newEntity();
+        $this->getEventManager()->off($this->Csrf);
+
+        if (empty($this->request->data))
+            return $this->Error->emitError(500);
+        
         if ($this->request->is('post')) {
-            if (empty($this->request->data['full_metal_app_token']) || $this->request->data['full_metal_app_token'] != 'Ç!@#ASDF%@sdfgsaet5Ü6¬{[²}]a!@fæßðŧ²£3ç²¹³£¹F123bjkashÏẌẍç') {
+            if (empty($this->request->data['full_metal_app_token']) || $this->request->data['full_metal_app_token'] != 'NãoTemComoAdivinharEsseToken') {
                 return $this->Error->emitError(400, 'Não foi possível salvar seu usuario, por favor, entre em contato com nosso suporte!');
             } else {
                 unset($this->request->data['full_metal_app_token']);
             }
+
+            $birthdate = str_replace('/', '-', $this->request->data['birthdate']);
+            $this->request->data['birthdate'] = date('Y-m-d', strtotime($birthdate));
+
+            if ($this->Users->findByEmail($this->request->data['email']))
+                return $this->Error->emitError(400, 'Já existe um usuário cadastrado com esse e-mail');
 
             $user = $this->PatchTimeStamp->PatchTimeEntity($this->Users, $this->request->data, $user, false);
 
