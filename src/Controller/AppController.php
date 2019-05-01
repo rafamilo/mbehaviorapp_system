@@ -70,15 +70,6 @@ class AppController extends Controller
 
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
-            'loginRedirect' => [
-                'controller' => 'Articles',
-                'action' => 'index'
-            ],
-            'logoutRedirect' => [
-                'controller' => 'Pages',
-                'action' => 'display',
-                'home'
-            ],
             'authenticate' => [
                 'Form' => [
                     'fields' => [
@@ -86,22 +77,37 @@ class AppController extends Controller
                         'password' => 'password']
                 ]
             ],
+            'unauthorizedRedirect' => $this->referer()
         ]);
         $this->Auth->allow();
+        
         /*
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
-        $this->loadComponent('Security');
     }
 
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['index', 'view', 'display']);
+        if ($this->request->getParam('prefix') != 'admin')
+            $this->loadComponent('Security');
     }
 
     public function beforeRender(Event $event)
     {
+        if ($this->request->getParam('prefix') == 'admin') {
+            if ($this->Auth && $this->Auth->user() && ($this->request->getParam('controller') == 'Users' && $this->request->getParam('action') == 'superLoginAdmin')) {
+                $this->Flash->error('Você já esta logado');
+                return $this->redirect(['prefix' => 'admin', 'controller' => 'UserApps', 'action' => 'Index']);
+            } else if (!$this->Auth->user() && ($this->request->getParam('controller') != 'Users' && $this->request->getParam('action') != 'superLoginAdmin')) {
+                $this->Flash->error('Você precisa estar logado para acessar essa página');
+                return $this->redirect(['prefix' => 'admin', 'controller' => 'Users', 'action' => 'superLoginAdmin']);
+            } else if ($this->Auth && $this->Auth->user() && $this->loadModel('Users')->get($this->Auth->user('id'))->user_type_id != 1) {
+                $this->Auth->logout();
+                return $this->redirect('http://www.google.com');
+            }
+        }
+
         $this->set('Auth', $this->Auth);
     }
 

@@ -20,7 +20,7 @@ class UserHelper extends Helper
 
     public function thisUser()
     {
-        $user_id = $_SESSION['Auth']['User']['id'];
+        $user_id = $this->request->session()->read('Auth.User.id');
         return TableRegistry::get('Users')->get($user_id);
     }
 

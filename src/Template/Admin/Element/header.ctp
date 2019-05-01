@@ -134,12 +134,12 @@
       </li>
       <li class="nav-item d-none d-lg-block dropdown">
         <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-          <?= $this->Html->image('home/ana-lina.jpg', ['class' => 'img-xs rounded-circle'])?>
+          <?= $this->Html->image('home/user.png', ['class' => 'img-xs rounded-circle'])?>
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
           <div class="dropdown-divider"></div>
           <div class="dropdown-item">
-            <?= $this->Html->link('Sair', '/users/logout', ['escape' => false])?>
+            <?= $this->Html->link('Sair', '/adminLogout', ['escape' => false])?>
           </div>
         </div>
       </li>

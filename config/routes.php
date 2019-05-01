@@ -57,6 +57,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/apiRegister', ['controller' => 'Users', 'action' => 'registerApiApp']);
     $routes->connect('/apiForgotPassword', ['controller' => 'Users', 'action' => 'forgotApiApp']);
     $routes->connect('/adminLogin', ['prefix' => 'admin', 'controller' => 'Users', 'action' => 'superLoginAdmin']);
+    $routes->connect('/adminLogout', ['prefix' => 'admin', 'controller' => 'Users', 'action' => 'logout']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

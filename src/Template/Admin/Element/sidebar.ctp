@@ -2,11 +2,10 @@
   <ul class="nav">
     <li class="nav-item nav-profile">
       <div class="nav-link">
-        <div class="profile-image"> <?= $this->Html->image('home/ana-lina.jpg', ['class'=>'profile-image'])?> <span class="online-status online"></span>
+        <div class="profile-image"> <?= $this->Html->image('home/user.png', ['class'=>'profile-image'])?> <span class="online-status online"></span>
         </div>
         <div class="profile-name">
           <p class="name"><?= $this->User->userName() ?></p>
-          <p class="designation">Bloco A - Apartamento 103</p>
           <div class="badge badge-teal mx-auto mt-3">Online</div>
         </div>
       </div>

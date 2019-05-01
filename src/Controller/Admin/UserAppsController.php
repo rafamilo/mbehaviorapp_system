@@ -23,6 +23,7 @@ class UserAppsController extends AppController
         $this->paginate = [
             'contain' => ['Users']
         ];
+
         $userApps = $this->paginate($this->UserApps);
 
         $this->set(compact('userApps'));
