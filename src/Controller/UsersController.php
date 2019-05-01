@@ -22,12 +22,12 @@ class UsersController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        if (in_array($this->request->params['action'], ['registerApiApp'])) {
+        if (in_array($this->request->params['action'], ['registerApiApp', 'loginApiApp'])) {
             // for csrf
             $this->eventManager()->off($this->Csrf);
         
             // for security component
-            $this->Security->config('unlockedActions', ['registerApiApp']);
+            $this->Security->config('unlockedActions', ['registerApiApp', 'loginApiApp']);
         }
         // Permitir aos usuários se registrarem e efetuar logout.
         // Você não deve adicionar a ação de "login" a lista de permissões.
@@ -37,14 +37,14 @@ class UsersController extends AppController
 
     public function loginApiApp()
     {
+        if (empty($this->request->data['full_metal_app_token']) || $this->request->data['full_metal_app_token'] != 'NãoTemComoAdivinharEsseTokenÇç')
+            return $this->Error->emitError(400, "'_Token' was not found in request data");
+
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
 
-            if ($user) {
-                $this->Auth->setUser($user);
-            } else {
+            if (!$user)
                 return $this->Error->emitError(400, 'Login ou senha incorretos!');
-            }
         }
 
         $this->set(compact('user'));
@@ -60,8 +60,8 @@ class UsersController extends AppController
             return $this->Error->emitError(500);
         
         if ($this->request->is('post')) {
-            if (empty($this->request->data['full_metal_app_token']) || $this->request->data['full_metal_app_token'] != 'NãoTemComoAdivinharEsseToken') {
-                return $this->Error->emitError(400, 'Não foi possível salvar seu usuario, por favor, entre em contato com nosso suporte!');
+            if (empty($this->request->data['full_metal_app_token']) || $this->request->data['full_metal_app_token'] != 'NãoTemComoAdivinharEsseTokenÇç') {
+                return $this->Error->emitError(400, "'_Token' was not found in request data");
             } else {
                 unset($this->request->data['full_metal_app_token']);
             }
@@ -74,9 +74,8 @@ class UsersController extends AppController
 
             $user = $this->PatchTimeStamp->PatchTimeEntity($this->Users, $this->request->data, $user, false);
 
-            if (!$this->Users->save($user)) {
+            if (!$this->Users->save($user))
                 return $this->Error->emitError(400, 'Não foi possível salvar seu usuário, por favor, entre em contato com nosso suporte!');
-            }
         }
 
         $this->set(compact('user'));
