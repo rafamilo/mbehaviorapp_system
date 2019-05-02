@@ -23,7 +23,7 @@ class CreateAndInsertData extends AbstractMigration
             rg VARCHAR(9) NOT NULL,
             email varchar(50) NOT NULL UNIQUE,
             created datetime NOT NULL,
-            updated datetime NOT NULL DEFAULT NOW(),
+            updated datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             created_by int(11) NOT NULL,
             updated_by int(11) NOT NULL,
             status tinyint NOT NULL DEFAULT 1
@@ -33,7 +33,7 @@ class CreateAndInsertData extends AbstractMigration
             id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
             name VARCHAR(50) NOT NULL,
             created datetime NOT NULL,
-            updated datetime NOT NULL DEFAULT NOW(),
+            updated datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             created_by int(11) NOT NULL,
             updated_by int(11) NOT NULL,
             status tinyint NOT NULL DEFAULT 1
@@ -46,7 +46,7 @@ class CreateAndInsertData extends AbstractMigration
             last_usage_time BIGINT NOT NULL,
             usage_in_this_session BIGINT NOT NULL,
             created datetime NOT NULL,
-            updated datetime NOT NULL DEFAULT NOW(),
+            updated datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             created_by int(11) NOT NULL,
             updated_by int(11) NOT NULL,
             status tinyint NOT NULL DEFAULT 1,
@@ -74,7 +74,7 @@ class CreateAndInsertData extends AbstractMigration
             connection_type VARCHAR(255) NOT NULL DEFAULT "",
             connection_effective_type VARCHAR(255) NOT NULL DEFAULT "",
             created datetime NOT NULL,
-            updated datetime NOT NULL DEFAULT NOW(),
+            updated datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             created_by int(11) NOT NULL,
             updated_by int(11) NOT NULL,
             status tinyint NOT NULL DEFAULT 1,
@@ -82,10 +82,10 @@ class CreateAndInsertData extends AbstractMigration
         );
         
         INSERT INTO users (id, name, user_type_id, birthdate, cpf, rg, email, created, created_by, updated_by)
-        VALUES (-13, "root", 1, NOW(), 00000000000, 000000000, "email@gmail.com", NOW(), -13, -13);
+        VALUES (-13, "root", 1, CURRENT_TIMESTAMP, 00000000000, 000000000, "email@gmail.com", CURRENT_TIMESTAMP, -13, -13);
         
         INSERT INTO user_types (id, name, created, created_by, updated_by)
-        VALUES (1, "admin", NOW(), -13, -13), (2, "dweller", NOW(), -13, -13)');
+        VALUES (1, "admin", CURRENT_TIMESTAMP, -13, -13), (2, "dweller", CURRENT_TIMESTAMP, -13, -13)');
     }
 
     public function down()
