@@ -32,6 +32,7 @@ class UsersController extends AppController
     {
         $this->viewBuilder()->setLayout('login');
         $user = $this->Users->newEntity();
+        
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
 
@@ -39,7 +40,7 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 $this->redirect(['prefix' => 'admin', 'controller' => 'UserApps', 'action' => 'index']);
             } else {
-                return $this->Error->emitError(400, 'Login ou senha incorretos!');
+                return $this->Flash->error(__('Login ou senha incorretos.'));
             }
         }
 

@@ -14,8 +14,8 @@
   <?= $this->Html->css('meuappe.css');?>
   <?= $this->Html->css('fullcalendar.min.css');?>
   <?= $this->Html->css('jquery-ui.min.css');?>
-  <?= $this->Html->script('js/sweetalert.min.js',['block' => 'scriptBottom']);?>
-  <?= $this->Html->script('js/sweetAlertFunctions.js',['block' => 'scriptBottom']);?>
+  <?= $this->Html->script('sweetalert.min.js');?>
+  <?= $this->Html->script('sweetAlertFunctions.js');?>
   <link rel="shortcut icon" href="../img/favicon.png" />
 </head>
 
