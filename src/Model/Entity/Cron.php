@@ -5,19 +5,12 @@ use Cake\ORM\Entity;
 use Cake\ORM\TableRegistry;
 
 /**
- * Award Entity.
+ * Cron Entity.
  *
  * @property int $id
- * @property string $name
- * @property \Cake\I18n\FrozenDate $sort_date
- * @property string $description
- * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $updated
- * @property int $created_by
- * @property int $updated_by
- * @property int $status
+ * @property string $nome
  */
-class Award extends Entity
+class Cron extends Entity
 {
 
     /**
@@ -30,23 +23,8 @@ class Award extends Entity
      * @var array
      */
     protected $_accessible = [
-        '*' => true,
-        'created' => false,
-        'updated' => false,
-        'created_by' => false,
-        'modalVisible' => false,
-        'updated_by' => false,
-        'status' => false,
+        'nome' => true,
     ];
-
-    protected $_hidden = [
-        'created',
-        'updated',
-        'created_by',
-        'updated_by',
-        'status',
-    ];
-    
     protected function _getVirtualCreatedBy()
     {   
         return TableRegistry::get('Users')->get($this->_properties['created_by'])->name;

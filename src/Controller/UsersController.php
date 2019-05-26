@@ -32,7 +32,7 @@ class UsersController extends AppController
         // Permitir aos usuários se registrarem e efetuar logout.
         // Você não deve adicionar a ação de "login" a lista de permissões.
         // Isto pode causar problemas com o funcionamento normal do AuthComponent.
-        $this->Auth->allow(['register', 'logout']);
+        $this->Auth->allow(['registerApiApp', 'loginApiApp']);
     }
 
     public function loginApiApp()
@@ -45,6 +45,8 @@ class UsersController extends AppController
 
             if (!$user)
                 return $this->Error->emitError(400, 'Login ou senha incorretos!');
+
+            $user = true;
         }
 
         $this->set(compact('user'));
@@ -76,9 +78,25 @@ class UsersController extends AppController
 
             if (!$this->Users->save($user))
                 return $this->Error->emitError(400, 'Não foi possível salvar seu usuário, por favor, entre em contato com nosso suporte!');
+
+            $user = true;
         }
 
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
+    }
+
+    public function testCurl()
+    {
+        $cron = $this->loadModel('Cron')->newEntity();
+
+        $newCron = ['nome' => 'nome'];
+
+        $cron = $this->Cron->patchEntity($cron, $newCron);
+
+        $this->Cron->save($cron);
+
+        $this->set(compact('cron'));
+        $this->set('_serialize', ['cron']);
     }
 }
