@@ -30,9 +30,9 @@ class ErrorController extends AppController
      */
     public function initialize()
     {
-        $this->loadComponent('RequestHandler', [
-            'enableBeforeRedirect' => false,
-        ]);
+        debug('aop');
+
+        $this->loadComponent('RequestHandler');
     }
 
     /**
@@ -54,6 +54,7 @@ class ErrorController extends AppController
     public function beforeRender(Event $event)
     {
         parent::beforeRender($event);
+        
 
         $this->viewBuilder()->setTemplatePath('Error');
     }

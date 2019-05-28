@@ -52,7 +52,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['prefix' => 'admin', 'controller' => 'UserApps', 'action' => 'index']);
+    $routes->connect('/', ['prefix' => 'admin', 'controller' => 'AppStatistics', 'action' => 'users']);
     $routes->connect('/apiLogin', ['controller' => 'Users', 'action' => 'loginApiApp']);
     $routes->connect('/apiRegister', ['controller' => 'Users', 'action' => 'registerApiApp']);
     $routes->connect('/apiForgotPassword', ['controller' => 'Users', 'action' => 'forgotApiApp']);
@@ -82,6 +82,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
 
     Router::prefix('admin', function ($routes) {
+        $routes->setExtensions(['json', 'xml']);
         $routes->fallbacks(DashedRoute::class);
         $routes->fallbacks('InflectedRoute');
     });

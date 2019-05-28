@@ -30,7 +30,7 @@ class UsersController extends AppController
 
     public function superLoginAdmin()
     {
-        $this->viewBuilder()->setLayout('login');
+        $this->viewBuilder()->setLayout('admin_login');
         $user = $this->Users->newEntity();
         
         if ($this->request->is('post')) {
@@ -38,7 +38,7 @@ class UsersController extends AppController
 
             if ($user) {
                 $this->Auth->setUser($user);
-                $this->redirect(['prefix' => 'admin', 'controller' => 'UserApps', 'action' => 'index']);
+                $this->redirect(['prefix' => 'admin', 'controller' => 'AppStatistics', 'action' => 'users']);
             } else {
                 return $this->Flash->error(__('Login ou senha incorretos.'));
             }

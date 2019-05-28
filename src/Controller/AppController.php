@@ -67,8 +67,8 @@ class AppController extends Controller
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
+        $this->loadComponent('Error');
 
-        $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
             'authenticate' => [
                 'Form' => [
@@ -96,9 +96,10 @@ class AppController extends Controller
     public function beforeRender(Event $event)
     {
         if ($this->request->getParam('prefix') == 'admin') {
+            $this->viewBuilder()->setLayout('admin');
             if ($this->Auth && $this->Auth->user() && ($this->request->getParam('controller') == 'Users' && $this->request->getParam('action') == 'superLoginAdmin')) {
                 $this->Flash->error('Você já esta logado');
-                return $this->redirect(['prefix' => 'admin', 'controller' => 'UserApps', 'action' => 'Index']);
+                return $this->redirect(['prefix' => 'admin', 'controller' => 'AppStatistics', 'action' => 'users']);
             } else if (!$this->Auth->user() && ($this->request->getParam('controller') != 'Users' && $this->request->getParam('action') != 'superLoginAdmin')) {
                 $this->Flash->error('Você precisa estar logado para acessar essa página');
                 return $this->redirect(['prefix' => 'admin', 'controller' => 'Users', 'action' => 'superLoginAdmin']);
