@@ -30,8 +30,6 @@ class ErrorController extends AppController
      */
     public function initialize()
     {
-        debug('aop');
-
         $this->loadComponent('RequestHandler');
     }
 

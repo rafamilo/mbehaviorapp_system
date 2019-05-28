@@ -86,7 +86,6 @@ class Application extends BaseApplication
             //     'httpOnly' => true
             // ]));
 
-        debug('aqui');
         return $middlewareQueue;
     }
 }
