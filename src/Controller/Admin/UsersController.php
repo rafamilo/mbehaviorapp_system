@@ -31,6 +31,7 @@ class UsersController extends AppController
     public function superLoginAdmin()
     {
         $this->viewBuilder()->setLayout('admin_login');
+
         $user = $this->Users->newEntity();
         
         if ($this->request->is('post')) {
