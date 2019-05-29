@@ -13,6 +13,7 @@
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
 namespace App\Controller;
+
 use Cake\Event\Event;
 use Cake\Controller\Controller;
 use Cake\Routing\RouteBuilder;
@@ -74,13 +75,14 @@ class AppController extends Controller
                 'Form' => [
                     'fields' => [
                         'username' => 'email',
-                        'password' => 'password']
+                        'password' => 'password'
+                    ]
                 ]
             ],
             'unauthorizedRedirect' => $this->referer()
         ]);
         $this->Auth->allow();
-        
+
         /*
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -95,12 +97,12 @@ class AppController extends Controller
 
     public function beforeRender(Event $event)
     {
+        if (((!$this->Auth) || ($this->Auth && !$this->Auth->user())) && $this->request->getParam('action') != 'superLoginAdmin') {
+            return $this->redirect(['prefix' => 'admin', 'controller' => 'Users', 'action' => 'superLoginAdmin']);
+        }
         if ($this->request->getParam('prefix') == 'admin') {
             if ($this->request->getParam('action') != 'superLoginAdmin') {
                 $this->viewBuilder()->setLayout('admin');
-            }
-            if ((!$this->Auth || !$this->Auth->user()) && $this->request->getParam('action') != 'superLoginAdmin') {
-                return $this->redirect(['prefix' => 'admin', 'controller' => 'Users', 'action' => 'superLoginAdmin']);
             }
             if ($this->Auth && $this->Auth->user() && ($this->request->getParam('controller') == 'Users' && $this->request->getParam('action') == 'superLoginAdmin')) {
                 $this->Flash->error('Você já esta logado');
