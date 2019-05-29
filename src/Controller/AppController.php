@@ -99,6 +99,9 @@ class AppController extends Controller
             if ($this->request->getParam('action') != 'superLoginAdmin') {
                 $this->viewBuilder()->setLayout('admin');
             }
+            if (!$this->Auth || !$this->Auth->user()) {
+                return $this->redirect(['prefix' => 'admin', 'controller' => 'Users', 'action' => 'superLoginAdmin']);
+            }
             if ($this->Auth && $this->Auth->user() && ($this->request->getParam('controller') == 'Users' && $this->request->getParam('action') == 'superLoginAdmin')) {
                 $this->Flash->error('Você já esta logado');
                 return $this->redirect(['prefix' => 'admin', 'controller' => 'AppStatistics', 'action' => 'users']);
