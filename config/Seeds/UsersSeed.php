@@ -21,6 +21,7 @@ class UsersSeed extends AbstractSeed
     {
         $this->execute('delete from users;');
         $data[] = [
+            'id' => -1,
             'name' => 'admin',
             'password' => (new DefaultPasswordHasher)->hash('admin'),
             'email' => 'admin@email.com',
